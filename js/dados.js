@@ -13,7 +13,7 @@ const lista = [
         data: '2022-01-28T15:09:00',
         convenio: 'Santa Rita',
         valorConsulta: '150,00',
-        imgGuia: 'https://picsum.photos/200/300',
+        imgGuia: null,
     },
     {
         id: '003',
@@ -61,6 +61,6 @@ const lista = [
         data: '2022-09-28T15:09:00',
         convenio: 'Prever',
         valorConsulta: '220,00',
-        imgGuia: 'https://picsum.photos/200/300',
+        imgGuia: null,
     },
 ]

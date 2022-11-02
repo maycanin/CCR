@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/dados.js"></script>
+    <title>Relatório de Consultas Realizadas</title>
+  </head>
+
+  <body>
+    <h1 class="noPrint">Controle de Consultas Médicas</h1>
+
+    <div id="card">
+      <div id="nav">
+        <a href="index.html" class="noPrint">Home</a>
+        <a href="cadastroConsulta.html" class="noPrint">Cadastro de Consultas</a>
+        <a href="" class="noPrint">Relatório de Consultas Realizadas</a>
+      </div>
+            
+        <h2>Lista de Consultas Realizadas</h2>
+        <h3>
+          Total de
+          <span id="consultasTotal"></span>
+          consulta(s) realizada(s)
+        </h3>
+
+        <table id="table">
+          <tr>
+            <th>Nome do Paciente</th>
+            <th>Data/Hora da Consulta</th>
+            <th>Convênio</th>
+            <th>Valor da Consulta</th>
+            <th>Img Guia</th>
+          </tr>
+        </table>
+        <h3 class="somaPeriodo">
+          Valor total
+          <span id="somaPeriodo"></span>
+        </h3>
+
+      <input
+        class="noPrint"
+        type="button"
+        value="Imprimir"
+        id="btnImprimir"
+        onclick="window.print()"
+      />
+
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

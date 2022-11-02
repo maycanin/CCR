@@ -4,7 +4,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    background-image: url("medico.jpg");
+    background-image: url("/imagens/medico.jpg");
     background-size: cover;
     display: flex;
     align-items: center;
@@ -28,7 +28,8 @@ h1 {
     align-items: center;
     flex-direction: column;
 }
-.btnGravar {
+.btnGravar, #btnImprimir {
+    color: white;
     border: none;
     font-weight: bold;
     background: #008cba;
@@ -55,6 +56,9 @@ th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+.somaPeriodo {
+    margin-bottom: 10px;
+}
 a {
     background: #dddddd;
     color: #000;
@@ -80,6 +84,7 @@ p {
 }
 a:hover {
     background: #008cba;
+    color: white;
 }
 #nav {
     display: flex;
@@ -88,4 +93,10 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media print {
+    .noPrint {
+        display: none;
+    }
 }
