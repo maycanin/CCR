@@ -1,102 +1,167 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    background-image: url("/imagens/medico.jpg");
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  background-image: url("/imagens/medico.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 h1 {
-    margin: 1rem;
-    font-size: 3rem;
-    font-weight: bold;
-    text-shadow: white 0.1em 0.1em 0.2em;
+  margin: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: white 0.1em 0.1em 0.2em;
 }
 #card {
-    width: 70%;
-    height: 80vh;
-    margin: 16px;
-    padding: 24px;
-    border-radius: 24px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  width: 70%;
+  height: 80vh;
+  margin: 16px;
+  padding: 24px;
+  border-radius: 24px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.btnGravar, #btnImprimir {
-    color: white;
-    border: none;
-    font-weight: bold;
-    background: #008cba;
-    border-radius: 0.1875rem;
-    width: 6rem;
-    height: 3rem;
-    border-radius: 5px;
+.btnGravar,
+#btnImprimir {
+  color: white;
+  border: none;
+  font-weight: bold;
+  background: #008cba;
+  border-radius: 0.1875rem;
+  width: 6rem;
+  height: 3rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.btnGravar:hover {
-    background: #04aa6d;
+.btnGravar:hover,
+#btnImprimir:hover {
+  background: #04aa6d;
 }
 table {
-    margin: 5px 0;
-    border-collapse: collapse;
-    width: 90%;
-    font-size: 12px;
+  margin: 5px 0;
+  border-collapse: collapse;
+  width: 90%;
+  font-size: 12px;
 }
 td,
 th {
-    border: 1px solid #d3d3d3;
-    text-align: left;
-    padding: 8px;
+  border: 1px solid #d3d3d3;
+  text-align: left;
+  padding: 8px;
 }
 tr:nth-child(even) {
-    background-color: #dddddd;
+  background-color: #dddddd;
 }
 .somaPeriodo {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 a {
-    background: #dddddd;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    margin: 0 2rem 1rem 2rem;
-    padding: 0.3125rem;
-    border-radius: 0.1875rem;
-    width: 6.25rem;
-    height: 6.25rem;
-    border-radius: 10px;
+  background: #dddddd;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 2rem 1rem 2rem;
+  padding: 0.3125rem;
+  border-radius: 0.1875rem;
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
 h2 {
-    margin: 1rem;
+  margin: 1rem;
 }
 p {
-    display: flex;
-    text-align: center;
-    width: 90%;
+  display: flex;
+  text-align: center;
+  width: 90%;
 }
 a:hover {
-    background: #008cba;
-    color: white;
+  background: #008cba;
+  color: white;
 }
 #nav {
-    display: flex;
+  display: flex;
 }
 #cadastroConsulta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media print {
-    .noPrint {
-        display: none;
-    }
+  .noPrint {
+    display: none;
+  }
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.mostrar .modal {
+  animation: modal 0.3s;
+}
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container.mostrar {
+  display: flex;
+}
+
+.modal {
+  background: white;
+  padding: 40px;
+  width: 60%;
+  min-width: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.fechar {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  border-radius: 50%;
+  border: #dddddd;
+  cursor: pointer;
+}
+.fechar:hover {
+  background: #dc143c;
+  color: white;
+}
+#video {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
 }
