@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="PT-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./css/style.css" />
-        <title>Controle de Consultas Médicas</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Controle de Consultas Médicas</title>
+  </head>
 
-    <body>
-        <h1>Controle de Consultas Médicas</h1>
-        <div id="card">
-            <div id="nav">
-                <a href="">Home</a>
-                <a href="cadastroConsulta.html">Cadastro de Consultas</a>
-                <a href="relatorioConsultas.html">Relatório de Consultas Realizadas</a>
-            </div>
-            <h2>Cadastro e listagem de consultas realizadas</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Recusandae aliquam beatae quos delectus! Cupiditate praesentium
-                id ex debitis atque nemo voluptas pariatur beatae aperiam
-                aliquam exercitationem, neque aut! Ipsa, quae?Lorem ipsum dolor
-                sit, amet consectetur adipisicing elit. Recusandae aliquam
-                beatae quos delectus! Cupiditate praesentium id ex debitis atque
-                nemo voluptas pariatur beatae aperiam aliquam exercitationem,
-                neque aut! Ipsa, quae?Lorem ipsum dolor sit, amet consectetur
-                adipisicing elit. Recusandae aliquam beatae quos delectus!
-                Cupiditate praesentium id ex debitis atque nemo voluptas
-                pariatur beatae aperiam aliquam exercitationem, neque aut! Ipsa,
-                quae?Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Recusandae aliquam beatae quos delectus! Cupiditate praesentium
-                id ex debitis atque nemo voluptas pariatur beatae aperiam
-                aliquam exercitationem, neque aut! Ipsa, quae?Lorem ipsum dolor
-                sit, amet consectetur adipisicing elit. Recusandae aliquam
-                beatae quos delectus! Cupiditate praesentium id ex debitis atque
-                nemo voluptas pariatur beatae aperiam aliquam exercitationem,
-                neque aut! Ipsa, quae?
-            </p>
-        </div>
-    </body>
+  <body>
+    <h1>Controle de Consultas Médicas</h1>
+    <div id="nav">
+      <a href="">Home</a>
+      <a href="cadastroConsulta.html">Cadastro de consultas</a>
+      <a href="relatorioConsultas.html">Relatório de consultas</a>
+    </div>
+    <h2 class="title-card">Cadastro e Relatório de consultas realizadas</h2>
+    <div id="card">
+      <form action="" id="cadastroConsulta">
+        <label class="label">Usuário</label>
+        <input id="nome" type="text" required />
+        <br>
+        <label class="label">Senha</label>
+        <input id="senha" type="password" required />
+        <br />
+        <input
+          type="button"
+          value="Acessar!"
+          class="button"
+          onclick="login()"
+        />
+      </form>
+    </div>
+  </body>
 </html>
