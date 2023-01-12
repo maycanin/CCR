@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="loginbd.js"></script>
     <title>Controle de Consultas Médicas</title>
   </head>
 
@@ -12,25 +13,26 @@
     <h1>Controle de Consultas Médicas</h1>
     <div id="nav">
       <a href="">Home</a>
-      <a href="cadastroConsulta.html">Cadastro de consultas</a>
-      <a href="relatorioConsultas.html">Relatório de consultas</a>
+      <a href="cadastroConsulta.html" style="display: none;" id="cadastro">Cadastro de consultas</a>
+      <a href="relatorioConsultas.html" style="display: none;" id="relatorio">Relatório de consultas</a>
     </div>
     <h2 class="title-card">Cadastro e Relatório de consultas realizadas</h2>
     <div id="card">
       <form action="" id="cadastroConsulta">
         <label class="label">Usuário</label>
-        <input id="nome" type="text" required />
+        <input id="nomeUsuario" type="text" required />
         <br>
         <label class="label">Senha</label>
-        <input id="senha" type="password" required />
+        <input id="senhaUsuario" type="password" required />
         <br />
         <input
-          type="button"
-          value="Acessar!"
-          class="button"
-          onclick="login()"
+        type="button"
+        value="Acessar!"
+        class="button"
+        onclick="login()"
         />
       </form>
     </div>
+    <script src="./js/login.js"></script>
   </body>
 </html>
