@@ -6,7 +6,7 @@ function login() {
   const senha = document.getElementById('senhaUsuario').value
     if (login == 'admin' && senha == 'admin') {
       localStorage.setItem('estaLogado', true)
-    window.location.replace('/cadastroConsulta.html')
+    window.location.replace('./cadastroConsulta.html')
   } else {
     loginNegado()
   }
@@ -26,11 +26,11 @@ function loginNegado() {
 
 function verificaLogin() {
     if (localStorage.getItem('estaLogado') !== "true") {
-        window.location.replace('/index.html')
+        window.location.replace('./index.html')
     }
 }
 
 function deslogar() {
     localStorage.removeItem('estaLogado')
-    window.location.replace('/index.html')
+    window.location.replace('./index.html')
 }
