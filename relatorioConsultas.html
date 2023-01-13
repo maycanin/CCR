@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/dados.js"></script>
+    <script src="./js/login.js"></script>  
     <title>Relatório de Consultas Realizadas</title>
   </head>
 
@@ -13,7 +14,6 @@
     <h1 class="noPrint">Controle de Consultas Médicas</h1>
 
     <div id="nav">
-      <a href="index.html" class="noPrint">Home</a>
       <a href="cadastroConsulta.html" class="noPrint">Cadastro de consultas</a>
       <a href="" class="noPrint">Relatório de consultas</a>
     </div>
@@ -72,6 +72,8 @@
         onclick="window.print()"
       />
     </div>
+    <button class="button" onclick="deslogar()">Sair</button>
+    <script>window.onload = verificaLogin()</script>
     <script src="./js/script.js"></script>
   </body>
 </html>
