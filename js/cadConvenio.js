@@ -29,3 +29,7 @@ function registrarConvenio() {
   novoConvenio.style.display = 'block'
   btnConv.value = '+'
 }
+
+function exibeGuiaConvenio() {
+  
+}
