@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Controle de Consultas Realizadas</title>
-    <script src="./js/bd.js"></script>
+    <script src="./js/login.js"></script>  
   </head>
 
   <body>
     <h1>Controle de Consultas Médicas</h1>
 
     <section id="nav">
-      <a href="index.html">Home</a>
       <a href="cadastroConsulta.html">Cadastro de consultas</a>
       <a href="relatorioConsultas.html">Relatório de consultas</a>
     </section>
@@ -78,7 +77,8 @@
         />
       </form>
     </main>
-
+<button class="button" onclick="deslogar()">Sair</button>
+    <script>window.onload = verificaLogin()</script>
     <script src="./js/cadConvenio.js"></script>
   </body>
 </html>
