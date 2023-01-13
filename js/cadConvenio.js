@@ -29,3 +29,12 @@ function registrarConvenio() {
   novoConvenio.style.display = 'block'
   btnConv.value = '+'
 }
+
+const inputFoto = document.getElementById("foto");
+inputFoto.addEventListener("change", exibeGuiaConvenio);
+
+function exibeGuiaConvenio() {
+  //  alert(inputFoto.files[0].name);
+  const status = document.getElementById("status-imagem");
+  status.innerText = "arquivo carregado: " +(inputFoto.files[0].name);
+}
