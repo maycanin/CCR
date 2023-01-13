@@ -10,76 +10,86 @@
     <script src="./js/login.js"></script>  
   </head>
 
-  <body>
-    <h1>Controle de Consultas Médicas</h1>
+    <body>
+        <h1>Controle de Consultas Médicas</h1>
 
-    <section id="nav">
-      <a href="cadastroConsulta.html">Cadastro de consultas</a>
-      <a href="relatorioConsultas.html">Relatório de consultas</a>
-    </section>
+        <section id="nav">
+            <a href="index.html">Home</a>
+            <a href="cadastroConsulta.html">Cadastro de consultas</a>
+            <a href="relatorioConsultas.html">Relatório de consultas</a>
+        </section>
 
-    <h2 class="title-card">Cadastro Consultas Realizadas</h2>
+        <h2 class="title-card">Cadastro Consultas Realizadas</h2>
 
-    <main id="card">
-      <form id="cadastroConsulta">
-        <label class="label">Nome do paciente*</label>
-        <input id="nome" type="text" required />
-        <br />
-        <label class="label">Número do Convênio*</label>
-        <input id="numero" type="number" required />
-        <br />
-        <label class="label">Data*</label>
-        <input id="data" type="datetime-local" required />
-        <br />
-        <div class="labelConv">
-          <label class="label" for="">Convênio*</label>
-          <input
-            type="button"
-            onclick="exibeCadastraConvenio()"
-            title="Cadastrar novo convênio"
-            id="btnConv"
-            value="+"
-          />
-        </div>
-        <input type="text" style="display: none;" id="cadastraConvenio" />
-        <select id="novoConvenio" required>
-          <option value="">Selecione</option>
-          <option value="Unimed">Unimed</option>
-          <option value="Santa Rita">Santa Rita</option>
-          <option value="Solumed">Solumed</option>
-          <option value="Prever">Prever</option>
-        </select>
-        <input
-          type="button"
-          value="Confirmar!"
-          style="display: none;"
-          id="btnConfirmaConvenio"
-          class="button"
-          onclick="registrarConvenio()"
-        />
-        <br />
+        <main id="card">
+            <form id="cadastroConsulta">
+                <label class="label">Nome do paciente*</label>
+                <input id="nome" type="text" required />
+                <br />
+                <label class="label">N° cartão/guia*</label>
+                <input id="numero" type="text" required />
+                <br />
+                <label class="label">Data*</label>
+                <input id="data" type="datetime-local" required />
+                <br />
+                <div class="labelConv">
+                    <label class="label" for="">Convênio*</label>
+                    <input
+                        type="button"
+                        onclick="exibeCadastraConvenio()"
+                        title="Cadastrar novo convênio"
+                        id="btnConv"
+                        value="+"
+                    />
+                </div>
+                <input
+                    type="text"
+                    style="display: none"
+                    id="cadastraConvenio"
+                />
+                <select id="novoConvenio" required>
+                    <option value="">Selecione</option>
+                    <option value="Unimed">Unimed</option>
+                    <option value="Santa Rita">Santa Rita</option>
+                    <option value="Solumed">Solumed</option>
+                    <option value="Prever">Prever</option>
+                </select>
+                <input
+                    type="button"
+                    value="Confirmar!"
+                    style="display: none"
+                    id="btnConfirmaConvenio"
+                    class="button"
+                    onclick="registrarConvenio()"
+                />
+                <br />
+                <label class="label" for="">Valor Consulta*</label>
+                <input
+                    type="number"
+                    name="valorConsulta"
+                    id="valorConsulta"
+                    required
+                />
+                <br />
+                <label class="labelBtn" for="foto"
+                    >Anexar Guia do Convênio</label
+                >
+                <input
+                    type="file"
+                    id="foto"
+                    capture="camera"
+                    accept="image/*"
+                />
+                <br />
+                <input
+                    type="button"
+                    value="Cadastrar!"
+                    class="button"
+                    onclick="salvarDados()"
+                />
+            </form>
+        </main>
 
-        <label class="label" for="">Valor Consulta*</label>
-        <input
-          type="number"
-          name="valorConsulta"
-          id="valorConsulta"
-          required
-        />
-        <br />
-        <label class="labelBtn" for="foto">Anexar Guia do Convênio</label>
-        <input type="file" id="foto" capture="camera" accept="image/*" />
-        <br />
-        <input
-          type="button"
-          value="Cadastrar!"
-          class="button"
-          onclick="coletarInfoConsulta()"
-        />
-      </form>
-    </main>
-<button class="button" onclick="deslogar()">Sair</button>
-    <script>window.onload = verificaLogin()</script>
-    <script src="./js/cadConvenio.js"></script>
-  </body>
+        <script src="./js/cadConvenio.js"></script>
+    </body>
 </html>
