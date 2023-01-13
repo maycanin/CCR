@@ -124,3 +124,43 @@ input[type="file"] {
     display: none;
   }
 }
+
+.toast {
+  display: none;
+  max-width: 275px;
+  max-height: 70px;
+
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+
+  padding: 0 24px;
+  padding-bottom: 12px;
+  
+  color: #fff;
+  border-radius: 4px 4px 0 4px;
+}
+
+.show {
+  display: block !important;
+}
+
+.toastTitle {
+  font-size: 16px;
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+
+.toastDescription {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.success {
+  background-color: #2f855a;
+}
+
+.error {
+  background-color: #c53030;
+}
