@@ -22,31 +22,35 @@ function coletarInfoConsulta() {
     );
 
     const imagemGuia = parseInt(document.getElementById("foto").value);
-    
-    salvarConsultaBD(nomeUsuario, numeroConvenio, dataConsulta, convenio, valorConsulta, imagemGuia)
 
-    limparCamposConsulta()
+    salvarConsultaBD(
+        nomeUsuario,
+        numeroConvenio,
+        dataConsulta,
+        convenio,
+        valorConsulta,
+        imagemGuia
+    );
+
+    limparCamposConsulta();
 }
 
-function salvarConsultaBD(nome, numeroConvenio, data, convenio, valor, imagem){
+function salvarConsultaBD(nome, numeroConvenio, data, convenio, valor, imagem) {
     bd.transaction(function (inserir) {
         inserir.executeSql(
             "INSERT INTO consultas (nome, numeroConvenio, data, convenio, valor, imagem) VALUES (?, ?, ?, ?, ?, ?)", //INSERT=inserir INTO=dentro VALUES=valores
             [nome, numeroConvenio, data, convenio, valor, imagem]
         );
     });
-    
 }
 
-function limparCamposConsulta(){
+function limparCamposConsulta() {
     document.getElementById("nome").value = "";
     document.getElementById("data").value = "";
     document.getElementById("numero").value = "";
     document.getElementById("novoConvenio").value = "";
     document.getElementById("valorConsulta").value = "";
     document.getElementById("imagem").value = "";
-
 }
 
 // salvarConsultaBD("aderson", 123456789, "2023-01-13 10:00:15", "unimed", 120.00, new Blob(["text"], {type: 'text/plain'}))
-
