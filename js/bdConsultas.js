@@ -17,11 +17,25 @@ function coletarInfoConsulta() {
         .getElementById("novoConvenio")
         .value.toUpperCase();
 
-    const valorConsulta = parseInt(
+    const valorConsulta = parseFloat(
         document.getElementById("valorConsulta").value
     );
 
-    const imagemGuia = parseInt(document.getElementById("foto").value);
+    const imagemGuia = document.getElementById("foto");
+
+    let reader = new FileReader()
+
+    reader.readAsDataURL(inputFoto.files[0])
+
+    reader.onload = () => {
+        let fileInfo = {
+            name: foto.name,
+            type: foto.type,
+            size: Math.round(foto.size / 1000) + ' kb',
+            base64: reader.result,
+            file: foto
+        }
+    }
     
     salvarConsultaBD(nomeUsuario, numeroConvenio, dataConsulta, convenio, valorConsulta, imagemGuia)
 
@@ -39,14 +53,14 @@ function salvarConsultaBD(nome, numeroConvenio, data, convenio, valor, imagem){
 }
 
 function limparCamposConsulta(){
+    const status = document.getElementById("status-imagem");
     document.getElementById("nome").value = "";
     document.getElementById("data").value = "";
     document.getElementById("numero").value = "";
     document.getElementById("novoConvenio").value = "";
     document.getElementById("valorConsulta").value = "";
-    document.getElementById("imagem").value = "";
+    status.innerText = "";
 
 }
 
 // salvarConsultaBD("aderson", 123456789, "2023-01-13 10:00:15", "unimed", 120.00, new Blob(["text"], {type: 'text/plain'}))
-
