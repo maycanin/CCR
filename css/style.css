@@ -95,6 +95,11 @@ a:hover {
 input[type="file"] {
   display: none;
 }
+#status-imagem {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+}
 .search {
   font-weight: bold;
   padding: 5px;
