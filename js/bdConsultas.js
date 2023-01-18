@@ -20,7 +20,7 @@ function coletarInfoConsulta() {
   const imagemGuia = document.getElementById('foto')
 
   const reader = new FileReader()
-  
+
   const file = imagemGuia.files[0]
 
   reader.readAsDataURL(file)
@@ -74,3 +74,21 @@ const currentDate = today
   .reverse()
   .join('-')
 data.max = currentDate + 'T00:00'
+
+// cria marcara R$ 00,00 par ao campo valor da consulta
+function mascaraMoeda(event) {
+  const onlyDigits = event.target.value
+    .split('')
+    .filter((s) => /\d/.test(s))
+    .join('')
+    .padStart(3, '0')
+  const digitsFloat = onlyDigits.slice(0, -2) + '.' + onlyDigits.slice(-2)
+  event.target.value = maskCurrency(digitsFloat)
+}
+
+function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+  }).format(valor)
+}
