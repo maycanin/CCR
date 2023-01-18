@@ -73,7 +73,7 @@ const currentDate = today
   .split('/')
   .reverse()
   .join('-')
-data.max = currentDate + 'T00:00'
+data.max = currentDate + 'T23:59'
 
 // cria marcara R$ 00,00 par ao campo valor da consulta
 function mascaraMoeda(event) {
