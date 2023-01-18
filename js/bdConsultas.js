@@ -15,7 +15,7 @@ function coletarInfoConsulta() {
 
   const convenio = document.getElementById('novoConvenio').value.toUpperCase()
 
-  const valorConsulta = parseFloat(document.getElementById('valorConsulta').value)
+  const valorConsulta = document.getElementById('valorConsulta').value.slice(2)
 
   const imagemGuia = document.getElementById('foto')
 

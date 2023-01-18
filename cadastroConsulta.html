@@ -6,27 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/style.css" />
         <title>Controle de Consultas Realizadas</title>
-        <script src="./js/bdConsultas.js"></script>
         <script src="./js/login.js"></script>
     </head>
 
     <body>
         <h1>Controle de Consultas Médicas</h1>
-
+        
         <section id="nav">
             <a href="./cadastroConsulta.html">Cadastro de consultas</a>
             <a href="./relatorioConsultas.html">Relatório de consultas</a>
         </section>
 
         <h2 class="title-card">Cadastro Consultas Realizadas</h2>
-
+        
         <main id="card">
             <form id="cadastroConsulta">
                 <label class="label">Nome do paciente*</label>
                 <input id="nome" type="text" required />
                 <br />
                 <label class="label">N° cartão/guia*</label>
-                <input id="numero" type="text" required />
+                <input id="numero" type="number" min="0" required />
                 <br />
                 <label class="label">Data*</label>
                 <input id="data" type="datetime-local" min="2022-09-01T08:00" required />
@@ -39,13 +38,13 @@
                         title="Cadastrar novo convênio"
                         id="btnConv"
                         value="+"
-                    />
-                </div>
+                        />
+                    </div>
                 <input
-                    type="text"
-                    style="display: none"
+                type="text"
+                style="display: none"
                     id="cadastraConvenio"
-                />
+                    />
                 <select id="novoConvenio" required>
                     <option value="">Selecione</option>
                     <option value="Unimed">Unimed</option>
@@ -54,12 +53,12 @@
                     <option value="Prever">Prever</option>
                 </select>
                 <input
-                    type="button"
-                    value="Confirmar!"
-                    style="display: none"
-                    id="btnConfirmaConvenio"
-                    class="button"
-                    onclick="registrarConvenio()"
+                type="button"
+                value="Confirmar!"
+                style="display: none"
+                id="btnConfirmaConvenio"
+                class="button"
+                onclick="registrarConvenio()"
                 />
                 <br />
                 <label class="label" for="">Valor Consulta*</label>
@@ -69,33 +68,33 @@
                     id="valorConsulta"
                     oninput="mascaraMoeda(event)"
                     required
-                />
-                <br />
-                <label class="labelBtn" for="foto"
+                    />
+                    <br />
+                    <label class="labelBtn" for="foto"
                     >Anexar Guia do Convênio</label
-                >
-                <input
+                    >
+                    <input
                     type="file"
                     id="foto"
                     multiple="false"
                     capture="camera"
                     accept="image/*"
-                />
-                <span id="status-imagem"></span>
+                    />
+                    <span id="status-imagem"></span>
                 <br />
                 <input
-                    type="button"
-                    value="Cadastrar!"
-                    class="button"
-                    onclick="coletarInfoConsulta()"
+                type="button"
+                value="Cadastrar!"
+                class="button"
+                onclick="coletarInfoConsulta()"
                 />
             </form>
         </main></br>
         <button class="button" onclick="deslogar()">Sair</button>
         <script>
             window.onload = verificaLogin();
-        </script>
+            </script>
         <script src="./js/cadConvenio.js"></script>
-        <script src="./js/script.js"></script>
+        <script src="./js/bdConsultas.js"></script>
     </body>
 </html>
