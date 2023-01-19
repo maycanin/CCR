@@ -38,3 +38,4 @@ function exibeGuiaConvenio() {
   const status = document.getElementById('status-imagem')
   status.innerText = 'arquivo carregado: ' + inputFoto.files[0].name
 }
+
