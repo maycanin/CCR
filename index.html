@@ -4,30 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="loginbd.js"></script>
-    <title>Controle de Consultas Médicas</title>
+    <script>
+      //verifica se o esta logado para não acessar login.
+      if (localStorage.getItem('estaLogado') == 'true') {
+        window.location.replace('./cadastroConsulta.html')
+      }
+    </script>
+    <title>Login-Controle de Consultas Médicas</title>
   </head>
-
   <body>
-    <h1>Controle de Consultas Médicas</h1>
-
-    <h2 class="title-card">Cadastro e Relatório de consultas realizadas</h2>
-    <div id="card">
-      <form action="" id="cadastroConsulta">
-        <label class="label">Usuário</label>
-        <input id="nomeUsuario" type="text" required />
-        <br>
-        <label class="label">Senha</label>
-        <input id="senhaUsuario" type="password" required />
-        <br />
-        <input
-        type="button"
-        value="Acessar!"
-        class="button"
-        onclick="login()"
-        />
-      </form>
+    <div class="container">
+      <div class="card">
+        <div class="description">
+          <div>
+            <h1>CCR</h1>
+          </div>
+          <h2>Controle de Consultas Médicas Realizadas</h2>
+          <p>
+            Sistema dedicado a gestão das consultas realizadas, com a finalidade
+            de facilitar o controle dos atendimentos realizados pela clínica ou
+            profissional de saúde
+          </p>
+        </div>
+        <form>
+          <div class="login">
+            <h1>Login</h1>
+            <input
+              id="nomeUsuario"
+              type="text"
+              class="user"
+              autocomplete="off"
+            />
+            <input id="senhaUsuario" type="password" class="password" />
+            <input type="submit" value="Entrar" class="button" />
+          </div>
+        </form>
+      </div>
     </div>
     <div class="toast" id="toast">
       <p class="toastTitle" id="toastTitle"></p>
@@ -35,5 +55,4 @@
     </div>
     <script src="./js/login.js"></script>
   </body>
-  </html>
-  
+</html>

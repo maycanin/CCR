@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 body {
+  font-family: "Ubuntu", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #dcdcdc;
+  background: #f3f4f6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,8 +22,10 @@ h1 {
   padding: 16px;
   border-radius: 12px;
   background: #fff;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
-input, select {
+input,
+select {
   width: 100%;
   border-radius: 4px;
   padding: 5px 5px;
@@ -35,7 +37,10 @@ input, select {
   align-items: center;
   margin-bottom: 6px;
 }
-.button, #btnImprimir, #btnFiltrar, #btnLimpar {
+.button,
+#btnImprimir,
+#btnFiltrar,
+#btnLimpar {
   color: white;
   border: none;
   font-weight: bold;
@@ -56,7 +61,10 @@ input, select {
   width: 22px;
   height: 22px;
 }
-.button:hover, #btnImprimir:hover, #btnFiltrar:hover, #btnLimpar:hover {
+.button:hover,
+#btnImprimir:hover,
+#btnFiltrar:hover,
+#btnLimpar:hover {
   background: #04aa6d;
 }
 table {
@@ -65,7 +73,8 @@ table {
   width: 100%;
   font-size: 12px;
 }
-td, th {
+td,
+th {
   border: 1px solid #d3d3d3;
   padding: 6px;
 }
@@ -128,44 +137,4 @@ input[type="file"] {
   .noPrint {
     display: none;
   }
-}
-
-.toast {
-  display: none;
-  max-width: 275px;
-  max-height: 70px;
-
-  position: fixed;
-  right: 14px;
-  bottom: 14px;
-
-  padding: 0 24px;
-  padding-bottom: 12px;
-  
-  color: #fff;
-  border-radius: 4px 4px 0 4px;
-}
-
-.show {
-  display: block !important;
-}
-
-.toastTitle {
-  font-size: 16px;
-  font-weight: 700;
-
-  margin-bottom: 6px;
-}
-
-.toastDescription {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.success {
-  background-color: #2f855a;
-}
-
-.error {
-  background-color: #c53030;
 }
