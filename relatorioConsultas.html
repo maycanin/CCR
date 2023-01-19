@@ -12,19 +12,23 @@
 
   <body>
     <h1 class="noPrint">Controle de Consultas Médicas</h1>
-
+    
     <div id="nav">
       <a href="./cadastroConsulta.html" class="noPrint">Cadastro de consultas</a>
       <a href="" class="noPrint">Relatório de consultas</a>
     </div>
-
+    
     <h2 class="title-card">Relatório de Consultas Realizadas</h2>
 
     <div id="card">
       <div class="control-search">
+
         <label class="label-search">Filtro(s):</label>
-        <input id="data" class="search" type="datetime-local" />
-        <input id="data" class="search" type="datetime-local" />
+        
+        <input id="dataInicial" class="search" type="datetime-local" />
+
+        <input id="dataFinal" class="search" type="datetime-local" />
+        
         <select id="novoConvenio" class="search">
           <option value="">Selecione</option>
           <option value="Unimed">Unimed</option>
@@ -32,20 +36,21 @@
           <option value="Solumed">Solumed</option>
           <option value="Prever">Prever</option>
         </select>
+
         <input
         class="noPrint"
         type="button"
         value="Filtrar"
         id="btnFiltrar"
         onclick="filterSearch()"
-      />
+        />
         <input
         class="noPrint"
         type="button"
         value="Limpar"
         id="btnLimpar"
         onclick="clearSearch()"
-      />
+        />
       </div>
       <h3>
         Consultas no periodo:
@@ -65,15 +70,17 @@
         <span id="somaPeriodo"></span>
       </h3>
       <input
-        class="noPrint"
-        type="button"
-        value="Imprimir"
-        id="btnImprimir"
-        onclick="window.print()"
+      class="noPrint"
+      type="button"
+      value="Imprimir"
+      id="btnImprimir"
+      onclick="window.print()"
       />
     </div></body></br>
     <button class="button" onclick="deslogar()">Sair</button>
     <script>window.onload = verificaLogin()</script>
     <script src="./js/script.js"></script>
+    <script src="./js/relatorio.js"></script>  
   </body>
-</html>
+  </html>
+  
