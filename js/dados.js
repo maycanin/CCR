@@ -1,103 +1,110 @@
 const lista = [
     {
-        id: "001",
-        nomeDoPaciente: "Maria do Carmo",
+        nome: "Maria do Carmo",
+        numeroConvenio: 123456789,
         data: "2022-10-28T15:09:00",
         convenio: "Unimed",
-        valorConsulta: "100,00",
-        imgGuia: "https://picsum.photos/200/300",
+        valor: 100.0,
+        imagem: "https://picsum.photos/200/300",
     },
     {
-        id: "002",
-        nomeDoPaciente: "Mario do Parmo",
+        nome: "Mario do Parmo",
+        numeroConvenio: 12412541,
         data: "2022-01-28T15:09:00",
         convenio: "Santa Rita",
-        valorConsulta: "150,00",
-        imgGuia: null,
+        valor: 150.0,
+        imagem: "undefined",
     },
     {
-        id: "003",
-        nomeDoPaciente: "Mariana do Carmo",
+        nome: "Mariana do Carmo",
+        numeroConvenio: 243663,
         data: "2022-03-28T15:09:00",
         convenio: "Solumed",
-        valorConsulta: "230,00",
-        imgGuia: "https://picsum.photos/200/300",
+        valor: 230.0,
+        imagem: "https://picsum.photos/200/300",
     },
     {
-        id: "004",
-        nomeDoPaciente: "Marrie de Carme",
+        nome: "Marrie de Carme",
+        numeroConvenio: 23573547,
         data: "2022-09-28T15:09:00",
         convenio: "Prever",
-        valorConsulta: "200,00",
-        imgGuia: "https://picsum.photos/200/300",
+        valor: 200.0,
+        imagem: "https://picsum.photos/200/300",
     },
     {
-        id: "005",
-        nomeDoPaciente: "Marcia do Carmo",
+        nome: "Marcia do Carmo",
+        numeroConvenio: 1124,
         data: "2022-10-28T15:09:00",
         convenio: "Unimed",
-        valorConsulta: "101,00",
-        imgGuia: "https://picsum.photos/200/300",
+        valor: 101.0,
+        imagem: "https://picsum.photos/200/300",
     },
     {
-        id: "006",
-        nomeDoPaciente: "Marcio do Parmo",
+        nome: "Marcio do Parmo",
+        numeroConvenio: 24634,
         data: "2022-01-28T15:09:00",
         convenio: "Santa Rita",
-        valorConsulta: "10,00",
-        imgGuia: "https://picsum.photos/200/300",
+        valor: 109.0,
+        imagem: "https://picsum.photos/200/300",
     },
     {
-        id: "007",
-        nomeDoPaciente: "Mariana dos Santos",
+        nome: "Mariana dos Santos",
+        numeroConvenio: 847658,
         data: "2022-03-28T15:09:00",
         convenio: "Solumed",
-        valorConsulta: "20,00",
-        imgGuia: "https://picsum.photos/200/300",
+        valor: 203.0,
+        imagem: "https://picsum.photos/200/300",
     },
     {
-        id: "008",
-        nomeDoPaciente: "Marrie de Carmolina",
+        nome: "Marrie de Carmolina",
+        numeroConvenio: 24356,
         data: "2022-09-28T15:09:00",
         convenio: "Prever",
-        valorConsulta: "220,00",
-        imgGuia: null,
+        valor: 220.0,
+        imagem: "undefined",
     },
 ];
+
+// bd.transaction(function (inserir) {
+//     inserir.executeSql("INSERT INTO consultas VALUES (?, ?, ?, ?, ?, ?)", []);
+// });
 
 lista.forEach((e) => insereBD(e));
 
 function insereBD(elemento) {
-    if (confereDuplicata(elemento)) {
-    } else {
-        //insere
-        bd.transaction(function (inserir) {
-            inserir.executeSql(
-                "INSERT INTO consultas VALUES (?,?,?,?,?)",
-                [
-                    elemento.nomeUsuario,
-                    elemento.numeroConvenio,
-                    elemento.dataConsulta,
-                    elemento.convenio,
-                    elemento.valorDaConsulta,
-                ],
-                function (inserir, imagens) {
-                    imgblob = imagens.rows.item(0).imagem;
-                }
-            );
-        });
-    }
+    console.log(elemento);
+    confereDuplicata(elemento);
 }
 function confereDuplicata(elemento) {
     //confere se não esta
     bd.transaction(function (ler) {
-        ler.executeSql(
-            "SELECT * FROM convenio",
+        return ler.executeSql(
+            `SELECT * FROM consultas WHERE numeroConvenio=${elemento.numeroConvenio}`,
             [],
             function (ler, resultados) {
-                //
-                // return true;
+                if (resultados.rows.length == 0) {
+                    addLinhaBd(elemento);
+                    console.log("inserido");
+                } else {
+                    console.log("n - inserido");
+                }
             }
+        );
+    });
+}
+
+function addLinhaBd(elemento) {
+    bd.transaction(function (inserir) {
+        inserir.executeSql(
+            "INSERT INTO consultas VALUES (?,?,?,?,?,?)",
+            [
+                elemento.nome,
+                elemento.numeroConvenio,
+                elemento.data,
+                elemento.convenio,
+                elemento.valor,
+                elemento.imagem,
+            ]
         );
     });
 }
