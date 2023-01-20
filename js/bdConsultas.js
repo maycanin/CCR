@@ -108,12 +108,11 @@ function maskCurrency(valor, locale = "pt-BR", currency = "BRL") {
         currency,
     }).format(valor);
 }
-
 function adcionaConveniosPadroes() {
     criaBDConvenios();
 
     const convenios = ["Unimed", "Santa Rita", "Solumed", "Prever"];
-    const conveniosCadastros = coletaJaInseridos();
+    coletaJaInseridos(convenios);
     console.log(conveniosCadastros);
 
     const conveniosParaAdd = listaConveniosParaAdd(
@@ -129,24 +128,46 @@ function criaBDConvenios() {
     });
 }
 
-function coletaJaInseridos() {
-    let a = [];
+function coletaJaInseridos(convenios) {
     bd.transaction(function (ler) {
         ler.executeSql(
             "SELECT * FROM convenios",
             [],
             function (ler, resultados) {
-                const conveniosCadastros = new Array(resultados.rows.length);
-                console.log(resultados.rows.length);
+                const conveniosCadastros = [];
                 for (let i = 0; i < resultados.rows.length; i++) {
                     console.log(resultados.rows.item(i).nome);
                     conveniosCadastros[i] = resultados.rows.item(i).nome;
                 }
-                a = conveniosCadastros;
+                for (let i = 0; i < convenios.length; i++) {
+                    if (!conveniosCadastros.includes(convenios[i])) {
+                        adcionaConvenio(convenios[i]);
+                    }
+                }
             }
         );
     });
-    return a;
+}
+
+function carregaConvenios() {
+    bd.transaction(function (ler) {
+        ler.executeSql(
+            "SELECT * FROM convenios",
+            [],
+            function (ler, resultados) {
+                for (let i = 0; i < resultados.rows.length; i++) {
+                    adicionaOpcaoConvenio(resultados.rows.item(i).nome);
+                }
+            }
+        );
+    });
+}
+
+function adcionaConvenio(convenio) {
+    bd.transaction(function (inserir) {
+        inserir.executeSql("INSERT INTO convenios VALUES (?)", [convenio]);
+    });
+    adicionaOpcaoPadrao();
 }
 
 function listaConveniosParaAdd(convenios, conveniosCadastros) {
@@ -158,5 +179,13 @@ function listaConveniosParaAdd(convenios, conveniosCadastros) {
     );
     return conveniosParaAdd;
 }
+
+adicionaOpcaoPadrao();
+
+// bd.transaction(function (inserir) {
+//     conveniosParaAdd.forEach((e) =>
+//         inserir.executeSql("INSERT INTO convenios (nome) VALUES (?)", [e])
+//     );
+// });
 
 adcionaConveniosPadroes();
