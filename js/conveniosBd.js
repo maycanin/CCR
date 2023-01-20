@@ -69,8 +69,8 @@ function listaConveniosParaAdd(convenios, conveniosCadastros) {
     );
     return conveniosParaAdd;
 }
-  
-  adicionaOpcaoPadrao()
+
+adicionaOpcaoPadrao();
 
 // bd.transaction(function (inserir) {
 //     conveniosParaAdd.forEach((e) =>

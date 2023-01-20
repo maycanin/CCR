@@ -53,6 +53,8 @@ somaPeriodo.innerHTML = new Intl.NumberFormat('pt-BR', {
   currency: 'BRL',
 }).format(somaConsulta)
 
+
+
 function adicionaNovoConvenio(){
   const novoConvenio = document.getElementById("cadastraConvenio").value
   adcionaConvenio(novoConvenio);
