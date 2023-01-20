@@ -60,22 +60,6 @@ function adcionaConvenio(convenio) {
     adicionaOpcaoPadrao();
 }
 
-function adicionaNovoConvenio(){
-    const novoConvenio = document.getElementById("cadastraConvenio").value
-    adcionaConvenio(novoConvenio);
-  }
-  
-  function adicionaOpcaoPadrao(){
-    const select = document.getElementById("novoConvenio");
-    select.innerHTML = `<option value="">Selecione</option>`
-    carregaConvenios()
-  }
-  
-  function adicionaOpcaoConvenio(opcao){
-    const select = document.getElementById("novoConvenio");
-    select.innerHTML += `<option value="">${opcao}</option>`
-  }
-
 function listaConveniosParaAdd(convenios, conveniosCadastros) {
     const conveniosParaAdd = [];
     convenios.forEach((e) =>
