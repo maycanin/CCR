@@ -14,17 +14,17 @@ const table = document.getElementById('table')
 for (let i = 0; i < lista.length; i++) {
   // Cria nova linha
   let trow = table.insertRow(-1)
-  for (let j = 1; j < cols.length; j++) {
+  for (let j = 0; j < cols.length; j++) {
     const cell = trow.insertCell(-1)
 
     // Insere cada célula no lugar correto
     cell.innerHTML = lista[i][cols[j]]
 
-    if (cols[j] == 'imgGuia' && lista[i][cols[j]] == null) {
+    if (cols[j] == 'imagem' && lista[i][cols[j]] == undefined) {
       cell.innerHTML = '<input type="button" value="Enviar" class="btnBaixar"/>'
     }
-    if (cols[j] == 'imgGuia' && lista[i][cols[j]] !== null) {
-      cell.innerHTML = '<input type="button" value="Baixar" class="btnBaixar"/>'
+    if (cols[j] == 'imagem' && lista[i][cols[j]] !== undefined) {
+      cell.innerHTML = '<input type="button" value="Ver" class="btnBaixar"/>'
     }
     if (cols[j] == 'data') {
       let data = lista[i][cols[j]].split('T')
@@ -33,7 +33,7 @@ for (let i = 0; i < lista.length; i++) {
       cell.innerHTML = dataFormat + ' às ' + horaFormat + ' horas'
       console.log(horaFormat)
     }
-    if (cols[j] == 'valorConsulta') {
+    if (cols[j] == 'valor') {
       cell.innerHTML = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
@@ -44,7 +44,7 @@ for (let i = 0; i < lista.length; i++) {
 
 let somaConsulta = 0
 lista.forEach((item) => {
-  somaConsulta += parseFloat(item.valorConsulta)
+  somaConsulta += parseFloat(item.valor)
 })
 
 consultasTotal.innerHTML = lista.length
