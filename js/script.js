@@ -55,7 +55,13 @@ somaPeriodo.innerHTML = new Intl.NumberFormat("pt-BR", {
 
 function adicionaNovoConvenio() {
     const novoConvenio = document.getElementById("cadastraConvenio").value;
+    const select = document.getElementById("novoConvenio");
     adcionaConvenio(novoConvenio);
+    cadastraConvenio.value = "";
+    cadastraConvenio.style.display = "none";
+    btnConfirmaConvenio.style.display = "none";
+    select.style.display = "block";
+    btnConv.value = "+";
 }
 
 function adicionaOpcaoPadrao() {

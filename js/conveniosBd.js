@@ -3,7 +3,6 @@ function adcionaConveniosPadroes() {
 
     const convenios = ["Unimed", "Santa Rita", "Solumed", "Prever"];
     coletaJaInseridos(convenios);
-    console.log(conveniosCadastros);
 
     const conveniosParaAdd = listaConveniosParaAdd(
         convenios,
