@@ -109,3 +109,11 @@ function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
     currency,
   }).format(valor)
 }
+
+const inputFoto = document.getElementById("foto");
+inputFoto.addEventListener("change", exibeGuiaConvenio);
+
+function exibeGuiaConvenio() {
+    const status = document.getElementById("status-imagem");
+    status.innerText = "arquivo carregado: " + inputFoto.files[0].name;
+}

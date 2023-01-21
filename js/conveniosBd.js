@@ -13,11 +13,20 @@ function coletaJaInseridos(convenios) {
       }
       for (let i = 0; i < convenios.length; i++) {
         if (!conveniosCadastros.includes(convenios[i])) {
-          adicionaConvenio(convenios[i])
+          bd.transaction(function (inserir) {
+            inserir.executeSql('INSERT INTO convenios VALUES (?)', [convenios[i]])
+          })
+          // adicionaConvenio(convenios[i])
         }
       }
     })
+    adicionaOpcaoPadrao()
   })
+}
+
+function adicionaOpcaoConvenio(opcao) {
+  const select = document.getElementById('novoConvenio')
+  select.innerHTML += `<option value="${opcao}">${opcao}</option>`
 }
 
 function carregaConvenios() {
@@ -28,6 +37,12 @@ function carregaConvenios() {
       }
     })
   })
+}
+
+function adicionaOpcaoPadrao() {
+  const select = document.getElementById('novoConvenio')
+  select.innerHTML = `<option value="">Selecione</option>`
+  carregaConvenios()
 }
 
 function adicionaConvenio(convenio) {
@@ -60,16 +75,23 @@ function adicionaNovoConvenio() {
   btnConv.value = '+'
 }
 
-function adicionaOpcaoPadrao() {
-  const select = document.getElementById('novoConvenio')
-  select.innerHTML = `<option value="">Selecione</option>`
-  carregaConvenios()
-}
-
-function adicionaOpcaoConvenio(opcao) {
-  const select = document.getElementById('novoConvenio')
-  select.innerHTML += `<option value="${opcao}">${opcao}</option>`
+function exibeCadastraConvenio() {
+  const cadastraConvenio = document.getElementById('cadastraConvenio')
+  const btnConfirmaConvenio = document.getElementById('btnConfirmaConvenio')
+  const novoConvenio = document.getElementById('novoConvenio')
+  const btnConv = document.getElementById('btnConv')
+  if (cadastraConvenio.style.display == 'none') {
+    cadastraConvenio.style.display = 'block'
+    btnConfirmaConvenio.style.display = 'block'
+    novoConvenio.style.display = 'none'
+    btnConv.value = '-'
+  } else if (cadastraConvenio.style.display == 'block') {
+    cadastraConvenio.style.display = 'none'
+    btnConfirmaConvenio.style.display = 'none'
+    novoConvenio.style.display = 'block'
+    btnConv.value = '+'
+  }
 }
 
 coletaJaInseridos(convenios)
-adicionaOpcaoPadrao()
+// adicionaOpcaoPadrao()
