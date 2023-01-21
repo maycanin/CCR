@@ -1,3 +1,4 @@
+var bd = openDatabase('meuBD', '1.0', 'Meu Banco de Dados', 4080)
 
 const listaConsultas = [];
 
@@ -23,15 +24,15 @@ for (let i = 0; i < listaConsultas.length; i++) {
 const table = document.getElementById('table')
 
 if (table && listaConsultas.length > 0) {
-  for (let i = 0; i < listaConsultas.length; i++) {
-    // Cria nova linha
-    let trow = table.insertRow(-1)
-    for (let j = 0; j < cols.length; j++) {
-      const cell = trow.insertCell(-1)
-
-      // Insere cada célula no lugar correto
-      cell.innerHTML = listaConsultas[i][cols[j]]
-
+for (let i = 0; i < listaConsultas.length; i++) {
+  // Cria nova linha
+  let trow = table.insertRow(-1)
+  for (let j = 0; j < cols.length; j++) {
+    const cell = trow.insertCell(-1)
+    
+    // Insere cada célula no lugar correto
+    cell.innerHTML = listaConsultas[i][cols[j]]
+    
       if (cols[j] == 'imagem' && listaConsultas[i][cols[j]] == undefined) {
         cell.innerHTML =
           '<input type="button" value="Enviar" class="btnBaixar"/>'
