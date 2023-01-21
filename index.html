@@ -1,62 +1,116 @@
 <!DOCTYPE html>
 <html lang="PT-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./css/login.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
-            rel="stylesheet"
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="loginbd.js"></script>
+    <script>
+      //verifica se o esta logado para não acessar login.
+      if (localStorage.getItem('estaLogado') == 'true') {
+        window.location.replace('./cadastroConsulta.html')
+      }
+    </script>
+    <title>Login-Controle de Consultas Médicas</title>
+  </head>
+  <body>
+    <div class="container">
+     
+        <div class="card">
+        <div class="description">
+          <div>
+            <h1>CCR</h1>
+          </div>
+          <h2>Controle de Consultas Médicas Realizadas</h2>
+          <p>
+            Sistema dedicado a gestão das consultas realizadas, com a finalidade
+            de facilitar o controle dos atendimentos realizados pela clínica ou
+            profissional de saúde
+          </p>
+        </div>
+        <form>
+          <div class="login">
+            <h1>Login</h1>
+            <input
+              id="nomeUsuario"
+              type="text"
+              class="user"
+              autocomplete="off"
+            />
+            <input id="senhaUsuario" type="password" class="password" />
+            <input type="submit" value="Entrar" class="button" />
+          </div>
+        </form>
+      </div>
+    
+      <p>Desenvolvedores:</p>
+    <div class="credit">
+      <a href="https://github.com/maycanin" target="_blank" class="tooltip"><span class="tooltiptext">Mayson</span>
+          <img
+            src="./assets/me.jpg"
+            height="42"
+            width="42"
+            alt="Mayson C. Inácio"
+          />
+      </a>
+      <a href="https://github.com/alexsandrocm" target="_blank" class="tooltip"><span class="tooltiptext">Alexsandro</span>
+
+              <img
+              src="./assets/Alexsandro.jpg"
+              height="42"
+              width="42"
+              alt="Alexsandro"
+              />
+
+        </a>
+    </a>
+      <a href="https://github.com/adersoncarvalho" target="_blank" class="tooltip"><span class="tooltiptext">Aderson</span>
+
+              <img
+              src="./assets/Aderson.jpg"
+              height="42"
+              width="42"
+              alt="Aderson"
+              />
+
+        </a>
+    </a>
+    <a href="https://github.com/marcoskaff02" target="_blank" class="tooltip"><span class="tooltiptext">Marcos</span>
+            <img
+            src="./assets/Marcos.jpg"
+            height="42"
+            width="42"
+            alt="Marcos"
+          />
+    </a>
+    <a href="https://github.com/Metteus96" target="_blank" class="tooltip"><span class="tooltiptext">Mateus</span>
+        <img
+          src="./assets/Mateus.jpg"
+          height="42"
+          width="42"
+          alt="Mateus"
         />
-        <script src="loginbd.js"></script>
-        <script>
-            //verifica se o esta logado para não acessar login.
-            if (localStorage.getItem("estaLogado") == "true") {
-                window.location.replace("./cadastroConsulta.html");
-            }
-        </script>
-        <title>Login-Controle de Consultas Médicas</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="card">
-                <div class="description">
-                    <div>
-                        <h1>CCR</h1>
-                    </div>
-                    <h2>Controle de Consultas Médicas Realizadas</h2>
-                    <p>
-                        Sistema dedicado a gestão das consultas realizadas, com
-                        a finalidade de facilitar o controle dos atendimentos
-                        realizados pela clínica ou profissional de saúde
-                    </p>
-                </div>
-                <form>
-                    <div class="login">
-                        <h1>Login</h1>
-                        <input
-                            id="nomeUsuario"
-                            type="text"
-                            class="user"
-                            autocomplete="off"
-                        />
-                        <input
-                            id="senhaUsuario"
-                            type="password"
-                            class="password"
-                        />
-                        <input type="submit" value="Entrar" class="button" />
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="toast" id="toast">
-            <p class="toastTitle" id="toastTitle"></p>
-            <p class="toastDescription" id="toastDescription"></p>
-        </div>
-        <script src="./js/login.js"></script>
-    </body>
+    <a href="https://github.com/muriloeising" target="_blank" class="tooltip"><span class="tooltiptext">Murilo</span>
+            <img
+            src="./assets/Murilo.jpg"
+            height="42"
+            width="42"
+            alt="Murilo"
+          />
+      </a>
+    </div>
+</div>
+    <div class="toast" id="toast">
+      <p class="toastTitle" id="toastTitle"></p>
+      <p class="toastDescription" id="toastDescription"></p>
+    </div>
+    <script src="./js/login.js"></script>
+  </body>
 </html>
