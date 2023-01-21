@@ -1,5 +1,3 @@
-import { lista } from './dados.js'
-
 const cols = []
 
 for (let i = 0; i < lista.length; i++) {
@@ -35,7 +33,6 @@ if (table) {
         let dataFormat = data[0].split('-').reverse().join('/')
         let horaFormat = data[1].split(':').slice(0, 2).join(':')
         cell.innerHTML = dataFormat + ' às ' + horaFormat + ' horas'
-        console.log(horaFormat)
       }
       if (cols[j] == 'valor') {
         cell.innerHTML = new Intl.NumberFormat('pt-BR', {
@@ -57,26 +54,4 @@ if (table) {
     style: 'currency',
     currency: 'BRL',
   }).format(somaConsulta)
-}
-
-function adicionaNovoConvenio() {
-  const novoConvenio = document.getElementById('cadastraConvenio').value
-  const select = document.getElementById('novoConvenio')
-  adcionaConvenio(novoConvenio)
-  cadastraConvenio.value = ''
-  cadastraConvenio.style.display = 'none'
-  btnConfirmaConvenio.style.display = 'none'
-  select.style.display = 'block'
-  btnConv.value = '+'
-}
-
-function adicionaOpcaoPadrao() {
-  const select = document.getElementById('novoConvenio')
-  select.innerHTML = `<option value="">Selecione</option>`
-  carregaConvenios()
-}
-
-function adicionaOpcaoConvenio(opcao) {
-  const select = document.getElementById('novoConvenio')
-  select.innerHTML += `<option value="">${opcao}</option>`
 }

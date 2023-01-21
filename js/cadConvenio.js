@@ -15,7 +15,6 @@ function exibeCadastraConvenio() {
         novoConvenio.style.display = "block";
         btnConv.value = "+";
     }
-    console.log(cadastraConvenio.style.display);
 }
 
 function registrarConvenio() {

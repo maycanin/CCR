@@ -1,4 +1,4 @@
-export const lista = [
+const lista = [
   {
     nome: 'Maria do Carmo',
     numeroConvenio: '123456789',
