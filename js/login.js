@@ -4,7 +4,7 @@ const user = document.getElementById('nomeUsuario')
 const senha = document.getElementById('senhaUsuario')
 const form = document.querySelector('form')
 
-form.addEventListener('submit', (event) => {
+form?.addEventListener('submit', (event) => {
   event.preventDefault()
   if (user.value == 'admin' && senha.value == 'admin') {
     localStorage.setItem('estaLogado', true)
@@ -29,11 +29,11 @@ function loginNegado() {
   }, 3000)
 }
 
-user.addEventListener('input', () => {
+user?.addEventListener('input', () => {
   user.classList.remove('error')
   senha.classList.remove('error')
 })
-senha.addEventListener('input', () => {
+senha?.addEventListener('input', () => {
   senha.classList.remove('error')
   user.classList.remove('error')
 })

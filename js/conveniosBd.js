@@ -1,80 +1,97 @@
-function adcionaConveniosPadroes() {
-    criaBDConvenios();
+bd.transaction(function (criar) {
+  criar.executeSql('CREATE TABLE convenios (nome TEXT)')
+})
 
-    const convenios = ["Unimed", "Santa Rita", "Solumed", "Prever"];
-    coletaJaInseridos(convenios);
-
-    const conveniosParaAdd = listaConveniosParaAdd(
-        convenios,
-        conveniosCadastros
-    );
-    console.log(conveniosParaAdd);
-}
-
-function criaBDConvenios() {
-    bd.transaction(function (criar) {
-        criar.executeSql("CREATE TABLE convenios (nome TEXT)");
-    });
-}
+const convenios = ['Unimed', 'Santa Rita', 'Solumed', 'Prever']
 
 function coletaJaInseridos(convenios) {
-    bd.transaction(function (ler) {
-        ler.executeSql(
-            "SELECT * FROM convenios",
-            [],
-            function (ler, resultados) {
-                const conveniosCadastros = [];
-                for (let i = 0; i < resultados.rows.length; i++) {
-                    console.log(resultados.rows.item(i).nome);
-                    conveniosCadastros[i] = resultados.rows.item(i).nome;
-                }
-                for (let i = 0; i < convenios.length; i++) {
-                    if (!conveniosCadastros.includes(convenios[i])) {
-                        adcionaConvenio(convenios[i]);
-                    }
-                }
-            }
-        );
-    });
+  bd.transaction(function (ler) {
+    ler.executeSql('SELECT * FROM convenios', [], function (ler, resultados) {
+      const conveniosCadastros = []
+      for (let i = 0; i < resultados.rows.length; i++) {
+        conveniosCadastros[i] = resultados.rows.item(i).nome
+      }
+      for (let i = 0; i < convenios.length; i++) {
+        if (!conveniosCadastros.includes(convenios[i])) {
+          bd.transaction(function (inserir) {
+            inserir.executeSql('INSERT INTO convenios VALUES (?)', [convenios[i]])
+          })
+          // adicionaConvenio(convenios[i])
+        }
+      }
+    })
+    adicionaOpcaoPadrao()
+  })
+}
+
+function adicionaOpcaoConvenio(opcao) {
+  const select = document.getElementById('novoConvenio')
+  select.innerHTML += `<option value="${opcao}">${opcao}</option>`
 }
 
 function carregaConvenios() {
-    bd.transaction(function (ler) {
-        ler.executeSql(
-            "SELECT * FROM convenios",
-            [],
-            function (ler, resultados) {
-                for (let i = 0; i < resultados.rows.length; i++) {
-                    adicionaOpcaoConvenio(resultados.rows.item(i).nome);
-                }
-            }
-        );
-    });
+  bd.transaction(function (ler) {
+    ler.executeSql('SELECT * FROM convenios', [], function (ler, resultados) {
+      for (let i = 0; i < resultados.rows.length; i++) {
+        adicionaOpcaoConvenio(resultados.rows.item(i).nome)
+      }
+    })
+  })
 }
 
-function adcionaConvenio(convenio) {
-    bd.transaction(function (inserir) {
-        inserir.executeSql("INSERT INTO convenios VALUES (?)", [convenio]);
-    });
-    adicionaOpcaoPadrao();
+function adicionaOpcaoPadrao() {
+  const select = document.getElementById('novoConvenio')
+  select.innerHTML = `<option value="">Selecione</option>`
+  carregaConvenios()
 }
 
-function listaConveniosParaAdd(convenios, conveniosCadastros) {
-    const conveniosParaAdd = [];
-    convenios.forEach((e) =>
-        conveniosCadastros.includes(e)
-            ? conveniosParaAdd
-            : conveniosParaAdd.push(e)
-    );
-    return conveniosParaAdd;
+function adicionaConvenio(convenio) {
+  bd.transaction(function (ler) {
+    ler.executeSql('SELECT * FROM convenios', [], function (ler, resultados) {
+      const conveniosCadastros = []
+      for (let i = 0; i < resultados.rows.length; i++) {
+        conveniosCadastros[i] = resultados.rows.item(i).nome
+      }
+      if (!conveniosCadastros.includes(convenio)) {
+        bd.transaction(function (inserir) {
+          inserir.executeSql('INSERT INTO convenios VALUES (?)', [convenio])
+        })
+        adicionaOpcaoPadrao()
+      } else {
+        alert('Convênio já existe')
+      }
+    })
+  })
 }
 
-adicionaOpcaoPadrao();
+function adicionaNovoConvenio() {
+  const novoConvenio = document.getElementById('cadastraConvenio').value
+  const select = document.getElementById('novoConvenio')
+  adicionaConvenio(novoConvenio)
+  cadastraConvenio.value = ''
+  cadastraConvenio.style.display = 'none'
+  btnConfirmaConvenio.style.display = 'none'
+  select.style.display = 'block'
+  btnConv.value = '+'
+}
 
-// bd.transaction(function (inserir) {
-//     conveniosParaAdd.forEach((e) =>
-//         inserir.executeSql("INSERT INTO convenios (nome) VALUES (?)", [e])
-//     );
-// });
+function exibeCadastraConvenio() {
+  const cadastraConvenio = document.getElementById('cadastraConvenio')
+  const btnConfirmaConvenio = document.getElementById('btnConfirmaConvenio')
+  const novoConvenio = document.getElementById('novoConvenio')
+  const btnConv = document.getElementById('btnConv')
+  if (cadastraConvenio.style.display == 'none') {
+    cadastraConvenio.style.display = 'block'
+    btnConfirmaConvenio.style.display = 'block'
+    novoConvenio.style.display = 'none'
+    btnConv.value = '-'
+  } else if (cadastraConvenio.style.display == 'block') {
+    cadastraConvenio.style.display = 'none'
+    btnConfirmaConvenio.style.display = 'none'
+    novoConvenio.style.display = 'block'
+    btnConv.value = '+'
+  }
+}
 
-adcionaConveniosPadroes();
+coletaJaInseridos(convenios)
+// adicionaOpcaoPadrao()
