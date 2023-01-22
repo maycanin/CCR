@@ -14,17 +14,17 @@
         <title>Controle de Consultas Realizadas</title>
         <script src="./js/login.js"></script>
     </head>
-    
+
     <body>
         <h1>Controle de Consultas Médicas</h1>
-        
+
         <section id="nav">
             <a href="./cadastroConsulta.html">Cadastro de consultas</a>
             <a href="./relatorioConsultas.html">Relatório de consultas</a>
         </section>
-        
+
         <h2 class="title-card">Cadastro Consultas Realizadas</h2>
-        
+
         <main id="card">
             <form id="cadastroConsulta">
                 <label class="label">Nome do paciente*</label>
@@ -52,7 +52,7 @@
                 id="cadastraConvenio"
                 />
                 <select id="novoConvenio" required>
-                    
+
                 </select>
                 <input
                 type="button"
@@ -63,7 +63,7 @@
                 onclick="adicionaNovoConvenio()"
                 />
                 <br />
-                
+
                 <label class="label" for="">Valor Consulta*</label>
                 <input
                     type="text"
@@ -97,6 +97,7 @@
                 window.onload = verificaLogin();
                 </script>
         <script src="./js/bdConsultas.js"></script>
-        <script src="./js/conveniosBd.js"></script>
+        <script src="./js/dados.js"></script>
+        <script src="./js/cadConvenio.js"></script>
     </body>
 </html>
