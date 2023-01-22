@@ -6,6 +6,13 @@ bd.transaction(function (criar) {
     );
 });
 
+const formCadastroConsulta = document.getElementById("cadastroConsulta");
+
+formCadastroConsulta?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    coletarInfoConsulta();
+});
+
 function coletarInfoConsulta() {
     const nomeUsuario = document.getElementById("nome").value.toUpperCase();
 
@@ -27,8 +34,6 @@ function coletarInfoConsulta() {
 
     const file = imagemGuia.files[0];
 
-    console.log(file);
-    console.log(imagemGuia);
     if (file == undefined) {
         salvarConsultaBD(
             nomeUsuario,
@@ -189,3 +194,11 @@ adicionaOpcaoPadrao();
 // });
 
 adcionaConveniosPadroes();
+
+const inputFoto = document.getElementById("foto");
+inputFoto.addEventListener("change", exibeGuiaConvenio);
+
+function exibeGuiaConvenio() {
+    const status = document.getElementById("status-imagem");
+    status.innerText = "arquivo carregado: " + inputFoto.files[0].name;
+}

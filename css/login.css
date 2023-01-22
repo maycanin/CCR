@@ -13,12 +13,14 @@ p {
 }
 .container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
 .card {
+  margin-top: 80px;
   max-width: 992px;
   width: 100%;
   height: 70%;
@@ -119,6 +121,74 @@ input:focus {
 .show {
   display: block !important;
 }
+p {
+  color: #fff;
+  font-weight: bold;
+}
+.credit{
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: normal;
+}
+
+img {
+  margin: 3px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 7px rgba(255, 255, 255, 0.2)
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ee7752 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 
 .toastTitle {
   font-size: 16px;
@@ -134,18 +204,17 @@ input:focus {
 @media (max-width: 992px) {
   .card {
     flex-direction: column;
-    max-width: 400px;
+    max-width: 350px;
     margin: 22px;
-    height: 90%;
   }
   .login {
     width: 100%;
-    min-height: 300px;
+    min-height: 250px;
     border-radius: 0 0 10px 10px;
   }
   .description {
     border-radius: 10px 10px 0 0;
-    min-height: 300px;
+    min-height: 260px;
     padding: 30px;
   }
   .description h1 {
