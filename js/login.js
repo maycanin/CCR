@@ -8,7 +8,7 @@ form?.addEventListener('submit', (event) => {
   event.preventDefault()
   if (user.value == 'admin' && senha.value == 'admin') {
     localStorage.setItem('estaLogado', true)
-    window.location.replace('./cadastroConsulta.html')
+    window.location.replace('./cad_consulta.html')
   } else {
     loginNegado()
   }
