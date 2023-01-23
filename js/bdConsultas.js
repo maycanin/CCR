@@ -111,7 +111,7 @@ function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
 }
 
 const inputFoto = document.getElementById('foto')
-inputFoto.addEventListener('change', exibeGuiaConvenio)
+inputFoto?.addEventListener('change', exibeGuiaConvenio)
 
 function exibeGuiaConvenio() {
   const status = document.getElementById('status-imagem')
@@ -136,16 +136,16 @@ function toggleMenu(event) {
 btnMobile.addEventListener('click', toggleMenu)
 btnMobile.addEventListener('touchstart', toggleMenu)
 window.onload = () => {
-  window.innerWidth
-  if (window.innerWidth <= 670) {
-    removeClass()
+    window.innerWidth
+    if (window.innerWidth <= 670) {
+      removeClass()
+    }
   }
-}
 
 function removeClass() {
-  const btnNav = document.getElementById('btnNav')
-  const btnNav1 = document.getElementById('btnNav1')
-  const sair = document.getElementById('sair')
+    const btnNav = document.getElementById('btnNav')
+    const btnNav1 = document.getElementById('btnNav1')
+    const sair = document.getElementById('sair')
   btnNav.classList.remove('btnNav')
   btnNav1.classList.remove('btnNav')
   sair.classList.remove('sair')

@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background: #f7f7f7;
+}
+header {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #666666;
+}
+.name-sistem {
+  font-size: 70px;
+  color: #58164b;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.relogio {
+  gap: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin: 5px 5px 0 0;
+}
+.nav-master {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.btnNav {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 90%;
+  padding: 8px;
+  width: 200px;
+  border-radius: 0 14px;
+  margin-right: 10px;
+  text-decoration: none;
+  border: none;
+  background: #58164b;
+  color: white;
+}
+.btnNav:hover {
+  opacity: 0.8;
+}
+.sair {
+  margin-top: 50px;
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 90%;
+  border-radius: 0 14px;
+  margin-right: 10px;
+  text-decoration: none;
+  border: none;
+  background: red;
+  color: white;
+}
+.sair:hover {
+  opacity: 0.7;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+.relatorio-consulta {
+  background: white;
+  border: solid 1px #666666;
+  padding: 24px;
+  margin-top: 20px;
+  width: 610px;
+  border-radius: 0 14px;
+}
+.title-rel {
+  margin-bottom: 16px;
+  text-align: center;
+}
+.conteudo-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+.conteudo-group input::placeholder {
+  color: #58164b;
+}
+.conteudo-group input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #58164b;
+}
+.conteudo-group input,
+select {
+  padding: 8px;
+  border-radius: 0 14px;
+  border: none;
+  background-color: #f0f0f0;
+}
+table {
+  margin: 6px 0;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+td,
+th {
+  border: 1px solid #d3d3d3;
+  padding: 6px;
+}
+hr {
+  border: none;
+  width: 100%;
+  height: 1px;
+  background: #c8c8c8;
+  margin: 8px 0;
+}
+.button-print {
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 0;
+  width: 100%;
+  border-radius: 0 14px;
+  text-decoration: none;
+  border: none;
+  background: #58164b;
+  color: white;
+}
+.button {
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  border-radius: 0 14px;
+  text-decoration: none;
+  border: none;
+  background: #58164b;
+  color: white;
+}
+.button:hover, .button-print:hover {
+  opacity: 0.8;
+}
+
+footer {
+  padding-top: 8px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-top;
+  flex-direction: column;
+  background: #fff;
+  width: 100%;
+  height: 100px;
+  border-top: solid 1px #666666;
+}
+.credit {
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+img {
+  margin: 3px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 7px rgba(255, 255, 255, 0.2);
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background: #58164b;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #58164b transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.toastTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.toastDescription {
+  font-size: 14px;
+  font-weight: 400;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='datetime-local'] {
+  color: #58164b;
+}
+select {
+  color: #58164b;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+#btn-mobile {
+  display: none;
+}
+
+@media (max-width: 670px) {
+  .lista a {
+    display: block;
+    padding: 0.5rem;
+  }
+  .lista {
+    gap: 0.5rem;
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    right: 0px;
+    background: #e7e7e7;
+    transition: 0.6s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+  .nav.active .lista {
+    height: calc(100vh - 100px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+  .lista a {
+    text-decoration: none;
+    color: black;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  }
+  a:hover {
+    text-decoration: bold;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+  #hamburger::after,
+  #hamburger::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  .nav.active #hamburger {
+    border-top-color: transparent;
+  }
+  .nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+  .nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+}
+
+@media (max-width: 700px) {
+  .relogio {
+    display: none;
+  }
+  .relatorio-consulta {
+    position: relative;
+    max-width: 290px;
+  }
+  .title-rel h1 {
+    font-size: 22px;
+  }
+  footer {
+    display: none;
+  }
+}
+@media print {
+  .noPrint {
+    display: none;
+  }
+}
