@@ -73,21 +73,22 @@ header {
 .sair:hover {
   opacity: 0.7;
 }
+
 main {
   width: 100%;
   display: flex;
   flex: 1;
   justify-content: center;
 }
-.cadastro-consulta {
+.relatorio-consulta {
   background: white;
   border: solid 1px #666666;
   padding: 24px;
   margin-top: 20px;
-  width: 600px;
+  width: 610px;
   border-radius: 0 14px;
 }
-.title-cad {
+.title-rel {
   margin-bottom: 16px;
   text-align: center;
 }
@@ -107,30 +108,21 @@ select:focus {
 }
 .conteudo-group input,
 select {
-  padding: 8px 8px 8px 12px;
+  padding: 8px;
   border-radius: 0 14px;
   border: none;
   background-color: #f0f0f0;
 }
-.group {
-  display: flex;
-}
-.title-group {
-  width: 30%;
-  font-size: 14px;
-}
-.section-group {
-  display: flex;
-  flex-direction: column;
-}
-.label {
-  font-size: 16px;
-}
-.btn {
-  display: flex;
+table {
+  margin: 6px 0;
+  border-collapse: collapse;
   width: 100%;
-  justify-content: center;
-  margin-top: 16px;
+  font-size: 12px;
+}
+td,
+th {
+  border: 1px solid #d3d3d3;
+  padding: 6px;
 }
 hr {
   border: none;
@@ -139,25 +131,7 @@ hr {
   background: #c8c8c8;
   margin: 8px 0;
 }
-#status-imagem {
-  font-size: 10px;
-  display: flex;
-  justify-content: center;
-}
-.btn-mais {
-  cursor: pointer;
-  text-align: center;
-  font-size: 14px;
-  width: 22px;
-  height: 22px;
-  vertical-align: text-top;
-  border-radius: 50%;
-  text-decoration: none;
-  border: none;
-  background: #58164b;
-  color: white;
-}
-.button-cad {
+.button-print {
   cursor: pointer;
   text-align: center;
   font-size: 14px;
@@ -173,19 +147,16 @@ hr {
   cursor: pointer;
   text-align: center;
   padding: 8px;
-  width: 200px;
   border-radius: 0 14px;
-  margin-right: 10px;
   text-decoration: none;
   border: none;
   background: #58164b;
   color: white;
 }
-.button:hover,
-.button-cad:hover,
-.btn-mais:hover {
+.button:hover, .button-print:hover {
   opacity: 0.8;
 }
+
 footer {
   padding-top: 8px;
   position: absolute;
@@ -357,18 +328,19 @@ ul {
   .relogio {
     display: none;
   }
-  .title-group {
-    display: none;
-  }
-  .cadastro-consulta {
+  .relatorio-consulta {
     position: relative;
     max-width: 290px;
-    /* margin-bottom: 20px; */
   }
-  .title-cad h1 {
+  .title-rel h1 {
     font-size: 22px;
   }
   footer {
+    display: none;
+  }
+}
+@media print {
+  .noPrint {
     display: none;
   }
 }

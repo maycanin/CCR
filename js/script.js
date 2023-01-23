@@ -1,11 +1,11 @@
 var bd = openDatabase('meuBD', '1.0', 'Meu Banco de Dados', 4080)
 
-const listaConsultas = [];
+const listaConsultas = []
 
 bd.transaction(function (ler) {
   ler.executeSql('SELECT * FROM consultas', [], function (ler, resultados) {
     for (let i = 0; i < resultados.rows.length; i++) {
-      listaConsultas[i] = resultados.rows.item(i)
+      listaConsultas.push(resultados.rows.item(i))
     }
   })
 })
@@ -24,18 +24,17 @@ for (let i = 0; i < listaConsultas.length; i++) {
 const table = document.getElementById('table')
 
 if (table && listaConsultas.length > 0) {
-for (let i = 0; i < listaConsultas.length; i++) {
-  // Cria nova linha
-  let trow = table.insertRow(-1)
-  for (let j = 0; j < cols.length; j++) {
-    const cell = trow.insertCell(-1)
-    
-    // Insere cada célula no lugar correto
-    cell.innerHTML = listaConsultas[i][cols[j]]
-    
+  for (let i = 0; i < listaConsultas.length; i++) {
+    // Cria nova linha
+    let trow = table.insertRow(-1)
+    for (let j = 0; j < cols.length; j++) {
+      const cell = trow.insertCell(-1)
+
+      // Insere cada célula no lugar correto
+      cell.innerHTML = listaConsultas[i][cols[j]]
+
       if (cols[j] == 'imagem' && listaConsultas[i][cols[j]] == undefined) {
-        cell.innerHTML =
-          '<input type="button" value="Enviar" class="btnBaixar"/>'
+        cell.innerHTML = '<input type="button" value="Enviar" class="btnBaixar"/>'
       }
       if (cols[j] == 'imagem' && listaConsultas[i][cols[j]] !== undefined) {
         cell.innerHTML = '<input type="button" value="Ver" class="btnBaixar"/>'
@@ -60,6 +59,9 @@ for (let i = 0; i < listaConsultas.length; i++) {
   listaConsultas.forEach((item) => {
     somaConsulta += parseFloat(item.valor)
   })
+
+  const consultasTotal = document.getElementById('consultasTotal')
+  const somaPeriodo = document.getElementById('somaPeriodo')
 
   consultasTotal.innerHTML = listaConsultas.length
   somaPeriodo.innerHTML = new Intl.NumberFormat('pt-BR', {
