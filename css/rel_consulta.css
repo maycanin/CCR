@@ -15,13 +15,13 @@
 }
 [data-theme='dark'] {
   --color-ccr: #f5f9fc;
-  --color-text: #004182;
+  --color-text: #2A2A2A;
   --color-text2: #f5f9fc;
   --color-text3: #f5f9fc;
   --color-input: #9da2a6;
-  --color-bg: #1c2333;
-  --body-bg: #0e1525;
-  --border-color: #2b3245;
+  --color-bg: #3c4043;
+  --body-bg: #2c2e30;
+  --border-color: #3c4043;
   --sair-bg: #a60808;
 }
 body {
@@ -155,7 +155,7 @@ hr {
   border: none;
   width: 100%;
   height: 1px;
-  background: var(--border-color);
+  background: var(--body-bg);
   margin: 8px 0;
 }
 .button-print {
