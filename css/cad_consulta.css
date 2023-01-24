@@ -2,22 +2,44 @@
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
 }
+:root {
+  --color-ccr: #58164b;
+  --color-text: #58164b;
+  --color-text2: #fff;
+  --color-text3: #000;
+  --color-input: #58164b;
+  --color-bg: #fff;
+  --body-bg: #f6f6f6;
+  --border-color: #666666;
+  --sair-bg: #ff0000;
+}
+[data-theme='dark'] {
+  --color-ccr: #f5f9fc;
+  --color-text: #004182;
+  --color-text2: #f5f9fc;
+  --color-text3: #f5f9fc;
+  --color-input: #9da2a6;
+  --color-bg: #1c2333;
+  --body-bg: #0e1525;
+  --border-color: #2b3245;
+  --sair-bg: #a60808;
+}
 body {
   font-family: 'Ubuntu', sans-serif;
-  background: #f7f7f7;
+  background: var(--body-bg);
 }
 header {
-  background: #fff;
+  background: var(--color-bg);
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px #666666;
+  border-bottom: solid 1px var(--border-color);
 }
 .name-sistem {
   font-size: 70px;
-  color: #58164b;
+  color: var(--color-ccr);
   width: 140px;
   display: flex;
   justify-content: center;
@@ -29,6 +51,7 @@ header {
   width: 100%;
   justify-content: flex-end;
   margin: 5px 5px 0 0;
+  color: var(--color-text3);
 }
 .nav-master {
   align-items: center;
@@ -52,8 +75,8 @@ header {
   margin-right: 10px;
   text-decoration: none;
   border: none;
-  background: #58164b;
-  color: white;
+  background: var(--color-text);
+  color: var(--color-text2);
 }
 .btnNav:hover {
   opacity: 0.8;
@@ -67,8 +90,8 @@ header {
   margin-right: 10px;
   text-decoration: none;
   border: none;
-  background: red;
-  color: white;
+  background: var(--sair-bg);
+  color: var(--color-text2);
 }
 .sair:hover {
   opacity: 0.7;
@@ -80,8 +103,8 @@ main {
   justify-content: center;
 }
 .cadastro-consulta {
-  background: white;
-  border: solid 1px #666666;
+  background: var(--color-bg);
+  border: solid 1px var(--border-color);
   padding: 24px;
   margin-top: 20px;
   width: 600px;
@@ -90,6 +113,7 @@ main {
 .title-cad {
   margin-bottom: 16px;
   text-align: center;
+  color: var(--color-text3);
 }
 .conteudo-group {
   display: flex;
@@ -98,12 +122,12 @@ main {
   gap: 8px;
 }
 .conteudo-group input::placeholder {
-  color: #58164b;
+  color: var(--color-text);
 }
 .conteudo-group input:focus,
 select:focus {
   outline: none;
-  border: 1px solid #58164b;
+  border: 1px solid var(--color-input);
 }
 .conteudo-group input,
 select {
@@ -118,6 +142,7 @@ select {
 .title-group {
   width: 30%;
   font-size: 14px;
+  color: var(--color-text3);
 }
 .section-group {
   display: flex;
@@ -125,6 +150,7 @@ select {
 }
 .label {
   font-size: 16px;
+  color: var(--color-text3);
 }
 .btn {
   display: flex;
@@ -136,13 +162,14 @@ hr {
   border: none;
   width: 100%;
   height: 1px;
-  background: #c8c8c8;
+  background: var(--border-color);
   margin: 8px 0;
 }
 #status-imagem {
   font-size: 10px;
   display: flex;
   justify-content: center;
+  color: var(--color-text3);
 }
 .btn-mais {
   cursor: pointer;
@@ -154,8 +181,8 @@ hr {
   border-radius: 50%;
   text-decoration: none;
   border: none;
-  background: #58164b;
-  color: white;
+  background: var(--color-text);
+  color: var(--color-text2);
 }
 .button-cad {
   cursor: pointer;
@@ -166,26 +193,14 @@ hr {
   border-radius: 0 14px;
   text-decoration: none;
   border: none;
-  background: #58164b;
-  color: white;
+  background: var(--color-text);
+  color: var(--color-text2);
 }
-.button {
-  cursor: pointer;
-  text-align: center;
-  padding: 8px;
-  width: 200px;
-  border-radius: 0 14px;
-  margin-right: 10px;
-  text-decoration: none;
-  border: none;
-  background: #58164b;
-  color: white;
-}
-.button:hover,
 .button-cad:hover,
 .btn-mais:hover {
   opacity: 0.8;
 }
+
 footer {
   padding-top: 8px;
   position: absolute;
@@ -194,13 +209,14 @@ footer {
   align-items: center;
   justify-content: flex-top;
   flex-direction: column;
-  background: #fff;
+  background: var(--color-bg);
   width: 100%;
   height: 100px;
-  border-top: solid 1px #666666;
+  color: var(--color-text3);
+  border-top: solid 1px var(--border-color);
 }
 .credit {
-  color: #fff;
+  color: var(--color-bg);
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -210,7 +226,7 @@ footer {
 img {
   margin: 3px;
   border-radius: 20px;
-  box-shadow: 0px 0px 30px 7px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.2);
 }
 .tooltip {
   position: relative;
@@ -219,8 +235,8 @@ img {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background: #58164b;
-  color: #fff;
+  background: var(--color-text);
+  color: var(--color-bg);
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -240,7 +256,7 @@ img {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent #58164b transparent;
+  border-color: transparent transparent var(--color-text) transparent;
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
@@ -264,10 +280,10 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 input[type='datetime-local'] {
-  color: #58164b;
+  color: var(--color-text);
 }
 select {
-  color: #58164b;
+  color: var(--color-text);
 }
 
 ul {
@@ -363,7 +379,6 @@ ul {
   .cadastro-consulta {
     position: relative;
     max-width: 290px;
-    /* margin-bottom: 20px; */
   }
   .title-cad h1 {
     font-size: 22px;

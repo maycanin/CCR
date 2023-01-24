@@ -1,3 +1,5 @@
+var bd = openDatabase('meuBD', '1.0', 'Meu Banco de Dados', 4080)
+
 const lista = [
     {
         nome: "Maria do Carmo",
@@ -69,7 +71,7 @@ const lista = [
 //     inserir.executeSql("INSERT INTO consultas VALUES (?, ?, ?, ?, ?, ?)", []);
 // });
 
-lista.forEach((e) => insereBD(e));
+lista?.forEach((e) => insereBD(e));
 
 function insereBD(elemento) {
     console.log(elemento);

@@ -143,10 +143,46 @@ window.onload = () => {
   }
 
 function removeClass() {
+  const theme = document.getElementById('theme')
     const btnNav = document.getElementById('btnNav')
-    const btnNav1 = document.getElementById('btnNav1')
-    const sair = document.getElementById('sair')
+  const btnNav1 = document.getElementById('btnNav1')
+  const sair = document.getElementById('sair')
+  theme.classList.remove('btnNav')
   btnNav.classList.remove('btnNav')
   btnNav1.classList.remove('btnNav')
   sair.classList.remove('sair')
 }
+
+const body = document.querySelector('body');
+const initialTheme = "light";
+
+const setTheme = (theme) => {
+  localStorage.setItem('theme', theme);
+  body.setAttribute('data-theme', theme);
+};
+
+const toggleTheme = () => { 
+  const activeTheme = localStorage.getItem('theme');
+
+  if (activeTheme === 'light') {
+    setTheme('dark');
+  } else {
+    setTheme('light');
+  }
+}
+
+const setThemeOnInit = () => {
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme) {
+    body.setAttribute('data-theme', savedTheme);
+  } else {
+    setTheme(initialTheme);
+  }
+}
+
+// function verificaLogin() {
+//   if (localStorage.getItem('estaLogado') !== 'true') {
+//     window.location.replace('./index.html')
+//   }
+// }

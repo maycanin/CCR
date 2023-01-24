@@ -20,4 +20,23 @@ const currentDateFinal = todayFinal
   .join('-')
 dataFinal.max = currentDateFinal + 'T23:59'
 
+function printTarget(tableId) {
+  let divToPrint = document.getElementById('tableId');
+  let htmlToPrint = 
+      '<style type="text/css">' + 
+      'table {'+'font-family: arial, sans-serif;'+ 
+      'border-collapse: collapse;'+'width: 95%;'+ 
+      'margin-left: 20px'+'}'+   
+      'th, td {' +
+      'border:1px solid #000;' +
+      'padding: 8px;' +
+      '}'+ 'tr:nth-child(even) {'+
+      'background-color: #dddddd;'+'}'+
+      '</style>';
+  htmlToPrint += divToPrint.outerHTML;
+  let windowToPrint = window.open("");    
+  windowToPrint.document.write(htmlToPrint);
+  windowToPrint.print();
+  windowToPrint.close();
+}
 
