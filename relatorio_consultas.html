@@ -31,7 +31,7 @@
           <h1 class="name-sistem">CCR</h1>
         </div>
 
-        <nav id="nav" class="nav noPrint">
+        <nav id="nav" class="nav ">
           <button
             aria-label="Abrir Menu"
             id="btn-mobile"
@@ -44,12 +44,15 @@
           </button>
           <ul class="lista">
             <li>
+              <a href="#" onclick="toggleTheme()" class="btnNav">Dark Mode</a>
+            </li>
+            <li>
               <a href="./cad_consulta.html" id="btnNav" class="btnNav">
                 Cadastro de Atendimento
               </a>
             </li>
             <li>
-              <a href="./relatorio_consultas.html" id="btnNav1" class="btnNav">
+              <a href="#" id="btnNav1" class="btnNav">
                 Relatório de Atendimento
               </a>
             </li>
@@ -62,7 +65,7 @@
     </header>
 
     <main>
-      <div class="relatorio-consulta">
+      <div id="tableId" class="relatorio-consulta">
         <div class="title-rel">
           <h1>Relatório de Consultas Realizadas</h1>
         </div>
@@ -76,7 +79,7 @@
                 <select id="novoConvenio"></select>
 
                 <button
-                  class="noPrint button"
+                  class="button"
                   type="button"
                   id="btnFiltrar"
                   onclick="filterSearch()"
@@ -84,7 +87,7 @@
                   Filtrar
                 </button>
                 <button
-                  class="noPrint button"
+                  class="button"
                   type="button"
                   id="btnLimpar"
                   onclick="clearSearch()"
@@ -116,10 +119,10 @@
               </h4>
 
               <button
-                class="button-print noPrint"
+                class="button-print "
                 type="button"
                 id="btnImprimir"
-                onclick="window.print()"
+                onclick="printTarget()"
               >
                 Imprimir
               </button>
