@@ -286,7 +286,7 @@ ul {
   color: var(--color-text3);
 }
 
-@media (max-width: 785px) {
+@media (max-width: 992px) {
   .lista a {
     display: block;
     padding: 0.5rem;

@@ -300,7 +300,7 @@ ul {
 
 }
 
-@media (max-width: 785px) {
+@media (max-width: 992px) {
   .lista a {
     display: block;
     padding: 0.5rem;
@@ -371,20 +371,23 @@ ul {
     transform: rotate(-135deg);
     top: -7px;
   }
-  .relogio {
-    display: none;
-  }
-  .title-group {
-    display: none;
-  }
-  .cadastro-consulta {
-    position: relative;
-    max-width: 290px;
-  }
-  .title-cad h1 {
-    font-size: 22px;
-  }
-  footer {
-    display: none;
-  }
+}
+
+@media (max-width: 785px) {
+.relogio {
+  display: none;
+}
+.title-group {
+  display: none;
+}
+.cadastro-consulta {
+  position: relative;
+  max-width: 290px;
+}
+.title-cad h1 {
+  font-size: 22px;
+}
+footer {
+  display: none;
+}
 }
