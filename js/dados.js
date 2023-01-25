@@ -15,7 +15,7 @@ const lista = [
         data: "2022-01-28T15:09:00",
         convenio: "Santa Rita",
         valor: 150.0,
-        imagem: "undefined",
+        imagem: undefined,
     },
     {
         nome: "Mariana do Carmo",
@@ -63,13 +63,9 @@ const lista = [
         data: "2022-09-28T15:09:00",
         convenio: "Prever",
         valor: 220.0,
-        imagem: "undefined",
+        imagem: undefined,
     },
 ];
-
-// bd.transaction(function (inserir) {
-//     inserir.executeSql("INSERT INTO consultas VALUES (?, ?, ?, ?, ?, ?)", []);
-// });
 
 lista?.forEach((e) => insereBD(e));
 

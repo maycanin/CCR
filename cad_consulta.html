@@ -20,7 +20,7 @@
     <header>
       <div class="relogio">
         <div>
-          <output id="data"></output>
+          <output id="datata"></output>
         </div>
         <div>
           <output id="hora"></output>
@@ -44,12 +44,18 @@
           </button>
           <ul class="lista">
             <li>
-              <a href="#" onclick="toggleTheme()" id="theme" class="btnNav">
+              <a
+                onclick="toggleTheme()"
+                id="theme"
+                class="btnNav"
+                style="cursor: pointer;"
+              >
                 Dark Mode
+                <span id="status-mode"></span>
               </a>
             </li>
             <li>
-              <a href="#" id="btnNav" class="btnNav">
+              <a href="./cad_consulta.html" id="btnNav" class="btnNav">
                 Cadastro de Atendimento
               </a>
             </li>
@@ -284,9 +290,8 @@
     <script>
       window.onload = verificaLogin()
     </script>
-
-    <script src="./js/atualizaRelogio.js"></script>
     <script src="./js/bdConsultas.js"></script>
+    <script src="./js/atualizaRelogio.js"></script>
     <script src="./js/conveniosBd.js"></script>
   </body>
 </html>

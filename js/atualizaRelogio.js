@@ -18,7 +18,7 @@ function atualizaRelogio(){
     dataFormat = vdia + " / " + vmes + " / " + vano;
     horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
 
-    document.getElementById("data").innerHTML = dataFormat;
+    document.getElementById("datata").innerHTML = dataFormat;
     document.getElementById("hora").innerHTML = horaFormat;
 
     setTimeout("atualizaRelogio()",1000);

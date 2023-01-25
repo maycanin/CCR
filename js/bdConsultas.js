@@ -19,6 +19,7 @@ function coletarInfoConsulta() {
   const numeroConvenio = parseInt(document.getElementById('numero').value)
 
   const dataConsulta = document.getElementById('data').value
+  console.log(dataConsulta.value)
 
   const convenio = document.getElementById('novoConvenio').value.toUpperCase()
 
@@ -83,14 +84,16 @@ function limparCamposConsulta() {
 
 //define a data today como a maxima aceita
 const data = document.getElementById('data')
-const today = new Date()
-const currentDate = today
-  .toLocaleString()
-  .split(' ')[0]
-  .split('/')
-  .reverse()
-  .join('-')
-data.max = currentDate + 'T23:59'
+if (data) {
+  const today = new Date()
+  const currentDate = today
+    .toLocaleString()
+    .split(' ')[0]
+    .split('/')
+    .reverse()
+    .join('-')
+  data.max = currentDate + 'T23:59'
+}
 
 // cria marcara R$ 00,00 par ao campo valor da consulta
 function mascaraMoeda(event) {
@@ -121,15 +124,15 @@ function exibeGuiaConvenio() {
 const btnMobile = document.getElementById('btn-mobile')
 
 function toggleMenu(event) {
-  if (event.type === 'touchstart') event.preventDefault()
+  if (event?.type === 'touchstart') event.preventDefault()
   const nav = document.getElementById('nav')
   nav.classList.toggle('active')
   const active = nav.classList.contains('active')
-  event.currentTarget.setAttribute('aria-expanded', active)
+  event?.currentTarget.setAttribute('aria-expanded', active)
   if (active) {
-    event.currentTarget.setAttribute('aria-label', 'Fechar Menu')
+    event?.currentTarget.setAttribute('aria-label', 'Fechar Menu')
   } else {
-    event.currentTarget.setAttribute('aria-label', 'Abrir Menu')
+    event?.currentTarget.setAttribute('aria-label', 'Abrir Menu')
   }
 }
 
@@ -137,14 +140,14 @@ btnMobile.addEventListener('click', toggleMenu)
 btnMobile.addEventListener('touchstart', toggleMenu)
 window.onload = () => {
     window.innerWidth
-    if (window.innerWidth <= 670) {
+    if (window.innerWidth <= 785) {
       removeClass()
     }
-  }
+}
 
 function removeClass() {
   const theme = document.getElementById('theme')
-    const btnNav = document.getElementById('btnNav')
+  const btnNav = document.getElementById('btnNav')
   const btnNav1 = document.getElementById('btnNav1')
   const sair = document.getElementById('sair')
   theme.classList.remove('btnNav')
@@ -153,36 +156,44 @@ function removeClass() {
   sair.classList.remove('sair')
 }
 
-const body = document.querySelector('body');
-const initialTheme = "light";
+const body = document.querySelector('body')
+const initialTheme = 'light'
+const statusMode = document.getElementById('status-mode')
 
 const setTheme = (theme) => {
-  localStorage.setItem('theme', theme);
-  body.setAttribute('data-theme', theme);
-};
+  localStorage.setItem('theme', theme)
+  body.setAttribute('data-theme', theme)
+}
 
-const toggleTheme = () => { 
-  const activeTheme = localStorage.getItem('theme');
+const toggleTheme = () => {
+  const activeTheme = localStorage.getItem('theme')
+
+toggleMenu()
 
   if (activeTheme === 'light') {
-    setTheme('dark');
+    setTheme('dark')
   } else {
-    setTheme('light');
+    setTheme('light')
   }
+  verificaMode()
 }
+verificaMode()
 
 const setThemeOnInit = () => {
-  const savedTheme = localStorage.getItem('theme');
-
+  const savedTheme = localStorage.getItem('theme')
   if (savedTheme) {
-    body.setAttribute('data-theme', savedTheme);
+    body.setAttribute('data-theme', savedTheme)
   } else {
-    setTheme(initialTheme);
+    setTheme(initialTheme)
   }
 }
 
-// function verificaLogin() {
-//   if (localStorage.getItem('estaLogado') !== 'true') {
-//     window.location.replace('./index.html')
-//   }
-// }
+function verificaMode() {
+  if (localStorage.getItem('theme') !== 'light') {
+    statusMode.innerText = 'on'
+  } else {
+    statusMode.innerText = 'off'
+  }
+}
+
+setThemeOnInit()

@@ -12,7 +12,6 @@
     />
     <link rel="stylesheet" href="./css/rel_consulta.css" />
     <title>Relatório de Consultas Realizadas</title>
-    <script src="./js/script.js"></script>
     <script src="./js/login.js"></script>
   </head>
 
@@ -20,7 +19,7 @@
     <header>
       <div class="relogio">
         <div>
-          <output id="data"></output>
+          <output id="datata"></output>
         </div>
         <div>
           <output id="hora"></output>
@@ -31,7 +30,7 @@
           <h1 class="name-sistem">CCR</h1>
         </div>
 
-        <nav id="nav" class="nav ">
+        <nav id="nav" class="nav">
           <button
             aria-label="Abrir Menu"
             id="btn-mobile"
@@ -44,7 +43,15 @@
           </button>
           <ul class="lista">
             <li>
-              <a href="#" onclick="toggleTheme()" class="btnNav">Dark Mode</a>
+              <a
+                id="theme"
+                onclick="toggleTheme()"
+                class="btnNav"
+                style="cursor: pointer;"
+              >
+                Dark Mode
+                <span id="status-mode">off</span>
+              </a>
             </li>
             <li>
               <a href="./cad_consulta.html" id="btnNav" class="btnNav">
@@ -52,7 +59,7 @@
               </a>
             </li>
             <li>
-              <a href="#" id="btnNav1" class="btnNav">
+              <a href="./relatorio_consultas.html" id="btnNav1" class="btnNav">
                 Relatório de Atendimento
               </a>
             </li>
@@ -70,64 +77,61 @@
           <h1>Relatório de Consultas Realizadas</h1>
         </div>
         <hr />
-        <div class="conteudo">
-          <div class="group">
-            <div class="conteudo-group">
-              <div>
-                <input id="dataInicial" type="datetime-local" />
-                <input id="dataFinal" type="datetime-local" />
-                <select id="novoConvenio"></select>
+        <div class="conteudo-group">
+          <div>
+            <input id="dataInicial" type="datetime-local" />
+            <input id="dataFinal" type="datetime-local" />
+            <select id="novoConvenio"></select>
 
-                <button
-                  class="button"
-                  type="button"
-                  id="btnFiltrar"
-                  onclick="filterSearch()"
-                >
-                  Filtrar
-                </button>
-                <button
-                  class="button"
-                  type="button"
-                  id="btnLimpar"
-                  onclick="clearSearch()"
-                >
-                  Limpar
-                </button>
-              </div>
-
-              <h4>
-                Consultas no periodo:
-                <span id="consultasTotal"></span>
-              </h4>
-              <div style="overflow-x: auto;">
-                <table id="table">
-                  <tr>
-                    <th>Nome do Paciente</th>
-                    <th>Nº cartão/guia</th>
-                    <th>Data/Hora da Consulta</th>
-                    <th>Convênio</th>
-                    <th>Valor da Consulta</th>
-                    <th>Img Guia</th>
-                  </tr>
-                </table>
-              </div>
-
-              <h4>
-                Valor total
-                <span id="somaPeriodo"></span>
-              </h4>
-
-              <button
-                class="button-print "
-                type="button"
-                id="btnImprimir"
-                onclick="printTarget()"
-              >
-                Imprimir
-              </button>
-            </div>
+            <button
+              class="button"
+              type="button"
+              id="btnFiltrar"
+              onclick="filterSearch()"
+            >
+              Filtrar
+            </button>
+            <button
+              class="button"
+              type="button"
+              id="btnLimpar"
+              onclick="clearSearch()"
+            >
+              Limpar
+            </button>
           </div>
+
+          <h4>
+            Consultas no periodo:
+            <span id="consultasTotal"></span>
+          </h4>
+          <div style="overflow-x: auto;">
+            <table id="table">
+              <tr>
+                <th>Nome do Paciente</th>
+                <th>Nº cartão/guia</th>
+                <th>Data/Hora da Consulta</th>
+                <th>Convênio</th>
+                <th>Valor da Consulta</th>
+                <th>Img Guia</th>
+                <th>Editar/Excluir</th>
+              </tr>
+            </table>
+          </div>
+
+          <h4>
+            Valor total
+            <span id="somaPeriodo"></span>
+          </h4>
+
+          <button
+            class="button-print"
+            type="button"
+            id="btnImprimir"
+            onclick="printTarget()"
+          >
+            Imprimir
+          </button>
         </div>
       </div>
     </main>
@@ -218,5 +222,6 @@
     <script src="./js/atualizaRelogio.js"></script>
     <script src="./js/conveniosBd.js"></script>
     <script src="./js/relatorio.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
