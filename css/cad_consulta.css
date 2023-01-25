@@ -296,9 +296,11 @@ ul {
 
 #btn-mobile {
   display: none;
+  color: var(--color-text3);
+
 }
 
-@media (max-width: 670px) {
+@media (max-width: 785px) {
   .lista a {
     display: block;
     padding: 0.5rem;
@@ -322,6 +324,7 @@ ul {
     visibility: visible;
     overflow-y: auto;
   }
+
   .lista a {
     text-decoration: none;
     color: black;
@@ -344,6 +347,7 @@ ul {
   }
   #hamburger {
     border-top: 2px solid;
+    color: var(--color-text3);
     width: 20px;
   }
   #hamburger::after,
@@ -367,9 +371,6 @@ ul {
     transform: rotate(-135deg);
     top: -7px;
   }
-}
-
-@media (max-width: 700px) {
   .relogio {
     display: none;
   }

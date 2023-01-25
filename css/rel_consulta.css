@@ -51,6 +51,7 @@ header {
   width: 100%;
   justify-content: flex-end;
   margin: 5px 5px 0 0;
+  color: var(--color-text3);
 }
 .nav-master {
   align-items: center;
@@ -97,10 +98,12 @@ header {
 }
 
 main {
+  position: relative;
   width: 100%;
   display: flex;
-  flex: 1;
   justify-content: center;
+  margin-bottom: 20px;
+  height: calc(100vh - 100px);
 }
 .relatorio-consulta {
   background: var(--color-bg);
@@ -109,6 +112,8 @@ main {
   margin-top: 20px;
   width: 610px;
   border-radius: 0 14px;
+  overflow: auto;
+  /* position: absolute; */
 }
 .title-rel {
   margin-bottom: 16px;
@@ -148,7 +153,7 @@ table {
 }
 td,
 th {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-text3);
   padding: 6px;
 }
 hr {
@@ -186,7 +191,6 @@ hr {
 
 footer {
   padding-top: 8px;
-  position: absolute;
   bottom: 0;
   display: flex;
   align-items: center;
@@ -279,9 +283,10 @@ ul {
 
 #btn-mobile {
   display: none;
+  color: var(--color-text3);
 }
 
-@media (max-width: 670px) {
+@media (max-width: 785px) {
   .lista a {
     display: block;
     padding: 0.5rem;
@@ -350,9 +355,6 @@ ul {
     transform: rotate(-135deg);
     top: -7px;
   }
-}
-
-@media (max-width: 700px) {
   .relogio {
     display: none;
   }
