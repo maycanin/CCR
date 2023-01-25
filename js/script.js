@@ -4,7 +4,7 @@ const consultasTotal = document.getElementById('consultasTotal')
 const somaPeriodo = document.getElementById('somaPeriodo')
 
 bd.transaction(function (ler) {
-  ler.executeSql('SELECT * FROM consultas', [], function (ler, resultados) {
+  ler.executeSql('SELECT rowid, * FROM consultas', [], function (ler, resultados) {
     for (let i = 0; i < resultados.rows.length; i++) {
       listaConsultas.push(resultados.rows.item(i))
     }
@@ -19,13 +19,14 @@ function insereTable(consultas) {
     for (const k in consultas[i]) {
       if (cols.indexOf(k) === -1) {
         cols.push(k)
-      }
+        }
+      }  
     }
-  }
+    cols.push("Ações");
   for (let i = 0; i < consultas.length; i++) {
     // Cria nova linha
     let trow = table.insertRow(-1)
-    for (let j = 0; j < cols.length; j++) {
+    for (let j = 1; j < cols.length; j++) {
       const cell = trow.insertCell(-1)
 
       // Insere cada célula no lugar correto
@@ -48,9 +49,13 @@ function insereTable(consultas) {
           style: 'currency',
           currency: 'BRL',
         }).format(parseFloat(consultas[i][cols[j]]))
-      } else {
+      } else{
         cell.innerHTML = consultas[i][cols[j]]
-      }
+        }
+        if (cols[j] == 'Ações') {
+            cell.innerHTML =
+                '<div><button type="button" class="button">Editar</button><button type="button" class="button">Excluir</button></div>'
+        }
     }
   }
 
