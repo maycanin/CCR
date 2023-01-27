@@ -38,12 +38,12 @@ header {
   border-bottom: solid 1px var(--border-color);
 }
 .name-sistem {
-  font-size: 70px;
+  font-size: 60px;
   color: var(--color-ccr);
-  width: 140px;
+  width: 220px;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  margin: 0 0 10px 10px;
 }
 .relogio {
   gap: 10px;
