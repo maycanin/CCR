@@ -87,21 +87,21 @@ const data = document.getElementById('data')
 if (data) {
   const today = new Date()
   const currentDate = today
-    .toLocaleString()
-    .split(' ')[0]
-    .split('/')
-    .reverse()
-    .join('-')
+  .toLocaleString()
+  .split(' ')[0]
+  .split('/')
+  .reverse()
+  .join('-')
   data.max = currentDate + 'T23:59'
 }
 
 // cria marcara R$ 00,00 par ao campo valor da consulta
 function mascaraMoeda(event) {
   const onlyDigits = event.target.value
-    .split('')
-    .filter((s) => /\d/.test(s))
-    .join('')
-    .padStart(3, '0')
+  .split('')
+  .filter((s) => /\d/.test(s))
+  .join('')
+  .padStart(3, '0')
   const digitsFloat = onlyDigits.slice(0, -2) + '.' + onlyDigits.slice(-2)
   event.target.value = maskCurrency(digitsFloat)
 }
@@ -139,10 +139,10 @@ function toggleMenu(event) {
 btnMobile.addEventListener('click', toggleMenu)
 btnMobile.addEventListener('touchstart', toggleMenu)
 window.onload = () => {
-    window.innerWidth
-    if (window.innerWidth <= 785) {
-      removeClass()
-    }
+  window.innerWidth
+  if (window.innerWidth <= 785) {
+    removeClass()
+  }
 }
 
 function removeClass() {
@@ -167,9 +167,9 @@ const setTheme = (theme) => {
 
 const toggleTheme = () => {
   const activeTheme = localStorage.getItem('theme')
-
-toggleMenu()
-
+  
+  toggleMenu()
+  
   if (activeTheme === 'light') {
     setTheme('dark')
   } else {
@@ -194,6 +194,32 @@ function verificaMode() {
   } else {
     statusMode.innerText = 'off'
   }
+}
+
+function coletarGuiaEnviar(){
+  const enviarImagemGuia = document.getElementById("guiaParaEnviar")
+  const fileGuia = enviarImagemGuia.files[0]
+
+  reader.readAsDataURL(fileGuia)
+    reader.onload = () => {
+      const fileInfo = {
+        name: fileGuia.name,
+        type: fileGuia.type,
+        size: Math.round(foto.size / 1000) + ' kb',
+        base64: reader.result,
+        file: fileGuia,
+      }
+      updateGuiaConsulta(fileInfo.base64)
+    }
+}
+
+function updateGuiaConsulta(imagem) {
+  bd.transaction(function (eviarGuia) {
+    eviarGuia.executeSql(
+      'UPDATE consultas SET imagem  WHERE id = (${i}+1)',
+      [imagem],
+    )
+  })
 }
 
 setThemeOnInit()
