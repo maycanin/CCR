@@ -30,7 +30,10 @@ function insereTable(consultas) {
     for (let i = 0; i < consultas.length; i++) {
         // Cria nova linha
         let trow = table.insertRow(-1);
-        for (let j = 1; j < cols.length; j++) {
+        for (let j = 0; j < cols.length; j++) {
+            if (cols[j] == "rowid") {
+                continue;
+            }
             const cell = trow.insertCell(-1);
 
             // Insere cada célula no lugar correto
