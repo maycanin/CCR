@@ -46,15 +46,36 @@ function printTarget(tableId) {
 }
 
 function filterSearch() {
+    limpaTabela()
     const convenio = document.getElementById("novoConvenio").value;
     console.log(convenio);
     bd.transaction(function (ler) {
         ler.executeSql(
-            "SELECT * FROM convenios WHERE convenio=? ",
+            "SELECT * FROM consultas WHERE convenio=? ",
             [convenio],
             function (ler, resultado) {
                 console.log(resultado);
+                let listaConsultas = [];
+
+                for (let i = 0; i < resultado.rows.length; i++) {
+                    listaConsultas.push(resultado.rows.item(i));
+                    console.log(resultado.rows.item(i));
+                }
+                console.log(listaConsultas);
+                insereTable(listaConsultas);
             }
         );
     });
+}
+function limpaTabela(){
+    const table = document.getElementById("table")
+    table.innerHTML = `<tr>
+    <th>Nome do Paciente</th>
+    <th>Nº cartão/convênio</th>
+    <th>Data/Hora da Consulta</th>
+    <th>Convênio</th>
+    <th>Valor da Consulta</th>
+    <th>Img Guia</th>
+    <th>Editar/Excluir</th>
+  </tr>`
 }

@@ -23,7 +23,7 @@ function coletarInfoConsulta() {
 
     const convenio = document
         .getElementById("novoConvenio")
-        .value.toUpperCase();
+        .value;
 
     const valorConsulta = document
         .getElementById("valorConsulta")
