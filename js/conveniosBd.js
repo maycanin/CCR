@@ -22,7 +22,6 @@ function coletaJaInseridos(convenios) {
                                 [convenios[i]]
                             );
                         });
-                        // adicionaConvenio(convenios[i])
                     }
                 }
             }
@@ -111,5 +110,3 @@ function exibeCadastraConvenio() {
 }
 
 coletaJaInseridos(convenios);
-// adicionaOpcaoPadrao()
-

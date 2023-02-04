@@ -81,63 +81,14 @@ function insereTable(consultas) {
 }
 
 function exibeGuia(bloburl) {
-    const campoVisualizacao = document.getElementById("visualizacao");
-    campoVisualizacao.innerHTML = "";
+    const janela = window.open("about:blank");
+    const iframe = janela.document.createElement("img");
+    iframe.src = bloburl
+    iframe.style = 'width: 50%;'
+    setTimeout(()=> {
+        janela.document.body.appendChild(iframe)
+    },0)
 
-    var image = document.createElement("img");
-
-    image.src = bloburl;
-
-    image.width = 60;
-    image.height = 60;
-    image.alt = "here should be some image";
-
-    campoVisualizacao.appendChild(image);
 }
-// if (table && listaConsultas.length > 0) {
-// for (let i = 0; i < listaConsultas.length; i++) {
-//   // Cria nova linha
-//   let trow = table.insertRow(-1)
-//   for (let j = 0; j < cols.length; j++) {
-//     const cell = trow.insertCell(-1)
-
-//     // Insere cada célula no lugar correto
-
-//     if (cols[j] == 'imagem' && listaConsultas[i][cols[j]] == undefined) {
-//       cell.innerHTML =
-//         '<input type="button" value="Enviar" class="btnBaixar"/>'
-//     } else if (
-//       cols[j] == 'imagem' &&
-//       listaConsultas[i][cols[j]] !== undefined
-//     ) {
-//       cell.innerHTML = '<input type="button" value="Ver" class="btnBaixar"/>'
-//     } else if (cols[j] == 'data') {
-//       let data = listaConsultas[i][cols[j]].split('T')
-//       let dataFormat = data[0].split('-').reverse().join('/')
-//       let horaFormat = data[1].split(':').slice(0, 2).join(':')
-//       cell.innerHTML = dataFormat + ' às ' + horaFormat + ' horas'
-//     } else if (cols[j] == 'valor') {
-//       cell.innerHTML = new Intl.NumberFormat('pt-BR', {
-//         style: 'currency',
-//         currency: 'BRL',
-//       }).format(parseFloat(listaConsultas[i][cols[j]]))
-//     } else {
-//       cell.innerHTML = listaConsultas[i][cols[j]]
-//     }
-//   }
-// }
-
-// let somaConsulta = 0
-
-// listaConsultas.forEach((item) => {
-//   somaConsulta += parseFloat(item.valor)
-// })
-
-// consultasTotal.innerHTML = listaConsultas.length
-// somaPeriodo.innerHTML = new Intl.NumberFormat('pt-BR', {
-//   style: 'currency',
-//   currency: 'BRL',
-// }).format(somaConsulta)
-// }
 
 console.log(listaConsultas);
