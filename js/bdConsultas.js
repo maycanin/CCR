@@ -28,7 +28,7 @@ function coletarInfoConsulta() {
   const imagemGuia = document.getElementById('foto')
 
   const reader = new FileReader()
-
+  
   const file = imagemGuia.files[0]
 
   if (file == undefined) {
@@ -196,28 +196,33 @@ function verificaMode() {
   }
 }
 
-function coletarGuiaEnviar(){
-  const enviarImagemGuia = document.getElementById("guiaParaEnviar")
+function coletarGuiaEnviar(idguia){
+  const enviarImagemGuia = document.getElementById(idguia)
   const fileGuia = enviarImagemGuia.files[0]
+  let rowGuia = parseInt(idguia.split("-id-")[1])
+  const reader = new FileReader()
 
   reader.readAsDataURL(fileGuia)
     reader.onload = () => {
       const fileInfo = {
         name: fileGuia.name,
         type: fileGuia.type,
-        size: Math.round(foto.size / 1000) + ' kb',
+        size: Math.round(fileGuia.size / 1000) + ' kb',
         base64: reader.result,
         file: fileGuia,
       }
-      updateGuiaConsulta(fileInfo.base64)
+      updateGuiaConsulta(fileInfo.base64, rowGuia)
     }
 }
 
-function updateGuiaConsulta(imagem) {
+function updateGuiaConsulta(imagem, rowGuia) {
+  rowGuia++
+  console.log(imagem)
+  console.log(rowGuia)
   bd.transaction(function (eviarGuia) {
     eviarGuia.executeSql(
-      'UPDATE consultas SET imagem  WHERE id = (${i}+1)',
-      [imagem],
+      `UPDATE consultas SET imagem="${imagem}" WHERE rowid=${rowGuia}`,
+      [],
     )
   })
 }
