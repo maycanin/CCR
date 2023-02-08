@@ -40,7 +40,11 @@ function insereTable(consultas) {
 
             if (cols[j] == "imagem" && consultas[i][cols[j]] == "undefined") {
                 cell.innerHTML =
-                    '<input type="button" value="Enviar" class="btnBaixar"/>';
+                    //'<input type="button" value="Enviar" class="btnBaixar"/>';
+                    `<input type="file" multiple="false" capture="camera" accept="image/*" id="guiaParaEnviar-id-${i}"/>
+                     <input type="button" value="Enviar" class="btnEnviarGuia" onclick="coletarGuiaEnviar('guiaParaEnviar-id-${i}')"/>
+                    
+                    `
             } else if (
                 cols[j] == "imagem" &&
                 consultas[i][cols[j]] !== "undefined"

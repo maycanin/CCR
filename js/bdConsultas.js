@@ -200,4 +200,35 @@ function verificaMode() {
     }
 }
 
-setThemeOnInit();
+function coletarGuiaEnviar(idguia){
+  const enviarImagemGuia = document.getElementById(idguia)
+  const fileGuia = enviarImagemGuia.files[0]
+  let rowGuia = parseInt(idguia.split("-id-")[1])
+  const reader = new FileReader()
+
+  reader.readAsDataURL(fileGuia)
+    reader.onload = () => {
+      const fileInfo = {
+        name: fileGuia.name,
+        type: fileGuia.type,
+        size: Math.round(fileGuia.size / 1000) + ' kb',
+        base64: reader.result,
+        file: fileGuia,
+      }
+      updateGuiaConsulta(fileInfo.base64, rowGuia)
+    }
+}
+
+function updateGuiaConsulta(imagem, rowGuia) {
+  rowGuia++
+  console.log(imagem)
+  console.log(rowGuia)
+  bd.transaction(function (eviarGuia) {
+    eviarGuia.executeSql(
+      `UPDATE consultas SET imagem="${imagem}" WHERE rowid=${rowGuia}`,
+      [],
+    )
+  })
+}
+
+setThemeOnInit()
