@@ -42,15 +42,15 @@ function insereTable(consultas) {
                 cell.innerHTML =
                     //'<input type="button" value="Enviar" class="btnBaixar"/>';
                     `<input type="file" multiple="false" capture="camera" accept="image/*" id="guiaParaEnviar-id-${i}"/>
-                     <input type="button" value="Enviar" class="btnEnviarGuia" onclick="coletarGuiaEnviar('guiaParaEnviar-id-${i}')"/>
-                    
-                    `
-            } else if (
-                cols[j] == "imagem" &&
-                consultas[i][cols[j]] !== "undefined"
-            ) {
+                     <input type="submit" value="Enviar" class="btnEnviarGuia" onclick="coletarGuiaEnviar('guiaParaEnviar-id-${i}')"/>
+                     
+                     `
+                    } else if (
+                        cols[j] == "imagem" &&
+                        consultas[i][cols[j]] !== "undefined"
+                        ) {
                 cell.innerHTML = `<input type="button" value="Ver" class="btnBaixar"
-                 onclick="exibeGuia('${consultas[i][cols[j]]}')"/>`;
+                onclick="exibeGuia('${consultas[i][cols[j]]}')"/>`;
             } else if (cols[j] == "data") {
                 let data = consultas[i][cols[j]].split("T");
                 let dataFormat = data[0].split("-").reverse().join("/");
@@ -66,7 +66,8 @@ function insereTable(consultas) {
             }
             if (cols[j] == "Ações") {
                 cell.innerHTML =
-                    '<div><button type="button" class="button">Editar</button><button type="button" class="button">Excluir</button></div>';
+                //'<button type="button" class="button">Excluir</button></div>';
+                `<input type="button" value="Excluir" class="btnExcluirConsul" onclick="deleteConsulta('${i}')"/>`
             }
         }
     }
