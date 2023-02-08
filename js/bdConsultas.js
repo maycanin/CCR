@@ -221,14 +221,25 @@ function coletarGuiaEnviar(idguia){
 
 function updateGuiaConsulta(imagem, rowGuia) {
   rowGuia++
-  console.log(imagem)
-  console.log(rowGuia)
   bd.transaction(function (eviarGuia) {
     eviarGuia.executeSql(
       `UPDATE consultas SET imagem="${imagem}" WHERE rowid=${rowGuia}`,
       [],
     )
   })
+  location.reload()
 }
+
+function deleteConsulta(rowConsulta) {
+  rowConsulta++
+  bd.transaction(function (eviarGuia) {
+    eviarGuia.executeSql(
+      `DELETE FROM consultas WHERE rowid=${rowConsulta}`,
+      [],
+    )
+  })
+  location.reload()
+}
+
 
 setThemeOnInit()
