@@ -15,6 +15,16 @@ bd.transaction(function (ler) {
         }
     );
 });
+function addEventListenerElem(elementoId){
+    const input = document.getElementById(elementoId);
+    input?.addEventListener("change", exibeGuiaConvenio);
+    return input
+}
+
+function exibeGuiaConvenio() {
+    const status = document.getElementById("status-imagem");
+    status.innerText = "arquivo carregado: " + this?.files[0].name;
+}
 
 function insereTable(consultas) {
     const cols = [];
@@ -41,16 +51,19 @@ function insereTable(consultas) {
             if (cols[j] == "imagem" && consultas[i][cols[j]] == "undefined") {
                 cell.innerHTML =
                     //'<input type="button" value="Enviar" class="btnBaixar"/>';
-                    `<input type="file" multiple="false" capture="camera" accept="image/*" id="guiaParaEnviar-id-${i}"/>
-                     <input type="submit" value="Enviar" class="btnEnviarGuia" onclick="coletarGuiaEnviar('guiaParaEnviar-id-${i}')"/>
-                     
-                     `
-                    } else if (
-                        cols[j] == "imagem" &&
-                        consultas[i][cols[j]] !== "undefined"
-                        ) {
+                    `<div style="display: flex; flex-direction: column; align-items: center;">
+                    <label class="btnNav" for="guiaParaEnviar-id-${i}">Anexar</label>
+                <span id="status-imagem"></span>
+                <input type="file" multiple="false" capture="camera" style="display: none;" accept="image/*" id="guiaParaEnviar-id-${i}"/>
+                <input type="submit" value="Enviar" class="btnEnviarGuia" onclick="coletarGuiaEnviar('guiaParaEnviar-id-${i}')"/></div>
+                `;
+                addEventListenerElem(`guiaParaEnviar-id-${i}`);
+            } else if (
+                cols[j] == "imagem" &&
+                consultas[i][cols[j]] !== "undefined"
+            ) {
                 cell.innerHTML = `<input type="button" value="Ver" class="btnBaixar"
-                onclick="exibeGuia('${consultas[i][cols[j]]}')"/>`;
+                    onclick="exibeGuia('${consultas[i][cols[j]]}')"/>`;
             } else if (cols[j] == "data") {
                 let data = consultas[i][cols[j]].split("T");
                 let dataFormat = data[0].split("-").reverse().join("/");
@@ -66,8 +79,8 @@ function insereTable(consultas) {
             }
             if (cols[j] == "Ações") {
                 cell.innerHTML =
-                //'<button type="button" class="button">Excluir</button></div>';
-                `<input type="button" value="Excluir" class="btnExcluirConsul" onclick="deleteConsulta('${i}')"/>`
+                    //'<button type="button" class="button">Excluir</button></div>';
+                    `<input type="button" value="Excluir" class="btnExcluirConsul" onclick="deleteConsulta('${i}')"/>`;
             }
         }
     }
@@ -88,12 +101,9 @@ function insereTable(consultas) {
 function exibeGuia(bloburl) {
     const janela = window.open("about:blank");
     const iframe = janela.document.createElement("img");
-    iframe.src = bloburl
-    iframe.style = 'width: 50%;'
-    setTimeout(()=> {
-        janela.document.body.appendChild(iframe)
-    },0)
-
+    iframe.src = bloburl;
+    iframe.style = "width: 50%;";
+    setTimeout(() => {
+        janela.document.body.appendChild(iframe);
+    }, 0);
 }
-
-console.log(listaConsultas);

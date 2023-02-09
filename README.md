@@ -6,6 +6,6 @@ Controle de Consultas Realizadas. Projeto Integrador da turma 178 de Programador
 
 Alunos: Mayson, Alexsandro, Marcos, Aderson, Mateus e Murilo.
 
-Usuario: admin
+Usuario: medicoadmin
 
-Senha: admin
+Senha: senhaadmin

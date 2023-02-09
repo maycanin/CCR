@@ -6,7 +6,7 @@ const form = document.querySelector('form')
 
 form?.addEventListener('submit', (event) => {
   event.preventDefault()
-  if (user.value == 'admin' && senha.value == 'admin') {
+  if (user.value == 'medicoadmin' && senha.value == 'senhaadmin') {
     localStorage.setItem('estaLogado', true)
     window.location.replace('./cad_consulta.html')
   } else {
