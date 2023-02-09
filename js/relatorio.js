@@ -20,6 +20,8 @@ const currentDateFinal = todayFinal
     .join("-");
 dataFinal.max = currentDateFinal + "T23:59";
 
+const novoConvenio = document.getElementById("novoConvenio")
+
 function printTarget(tableId) {
     let divToPrint = document.getElementById("tableId");
     let htmlToPrint =
@@ -78,4 +80,25 @@ function limpaTabela(){
     <th>Img Guia</th>
     <th>Editar/Excluir</th>
   </tr>`
+}
+
+function clearSearch() {
+    const listaConsultas =[];
+    dataInicial.value = ""
+    dataFinal.value = ""
+    novoConvenio.value = ""
+
+    bd.transaction(function (ler) {
+        ler.executeSql(
+            "SELECT rowid, * FROM consultas",
+            [],
+            function (ler, resultados) {
+                for (let i = 0; i < resultados.rows.length; i++) {
+                    listaConsultas.push(resultados.rows.item(i));
+                }
+                insereTable(listaConsultas);
+            }
+        );
+    });
+
 }
