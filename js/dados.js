@@ -70,7 +70,6 @@ const lista = [
 lista?.forEach((e) => insereBD(e));
 
 function insereBD(elemento) {
-    console.log(elemento);
     confereDuplicata(elemento);
 }
 function confereDuplicata(elemento) {

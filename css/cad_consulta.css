@@ -81,6 +81,19 @@ header {
 .btnNav:hover {
   opacity: 0.8;
 }
+.btnNav {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 90%;
+  padding: 8px;
+  width: 200px;
+  border-radius: 0 14px;
+  margin-right: 10px;
+  text-decoration: none;
+  border: none;
+  background: var(--color-text);
+  color: var(--color-text2);
+}
 .sair {
   margin-top: 50px;
   text-align: center;
@@ -99,8 +112,7 @@ header {
 main {
   width: 100%;
   display: flex;
-  margin-bottom: 20px;
-  flex: 1;
+  min-height: calc(100vh - 215px);
   justify-content: center;
 }
 .cadastro-consulta {

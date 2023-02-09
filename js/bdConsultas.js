@@ -19,7 +19,6 @@ function coletarInfoConsulta() {
     const numeroConvenio = parseInt(document.getElementById("numero").value);
 
     const dataConsulta = document.getElementById("data").value;
-    console.log(dataConsulta.value);
 
     const convenio = document
         .getElementById("novoConvenio")
